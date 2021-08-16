@@ -83,27 +83,6 @@ nav #right_section ul li a i {
   margin: 0px 0px 0px 5px;
 }
 
-/*resets*/
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-ul {
-  margin: 0px;
-}
-
-ul li {
-  list-style-type: none;
-}
-
-body {
-  background: #1E1E1F;
-  font-size: "Lato", sans-serif;
-}
-
 #banner {
   width: 940px;
   background: #161616;
@@ -187,5 +166,30 @@ body {
   content: "\2022";
   position: absolute;
   left: 43px;
+}
+
+#banner #banner_content p:last-child {
+  margin: 0;
+}
+
+/*resets*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul {
+  margin: 0px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+body {
+  background: #1E1E1F;
+  font-size: "Lato", sans-serif;
 }
 /*# sourceMappingURL=hh_styles.css.map */
