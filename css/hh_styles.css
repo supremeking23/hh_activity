@@ -192,4 +192,21 @@ body {
   background: #1E1E1F;
   font-size: "Lato", sans-serif;
 }
+
+main {
+  background: #101012;
+  width: 940px;
+  margin: 0 auto;
+}
+
+main aside {
+  color: #979797;
+  padding: 20px;
+  width: 240px;
+}
+
+main aside #accordion h3 {
+  font: 16px/18px "Lato", sans-serif;
+  padding: 18px;
+}
 /*# sourceMappingURL=hh_styles.css.map */

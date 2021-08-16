@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/hh_styles.css">
 
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +23,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="js/hh_scripts.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+        $( function() {
+          $( "#accordion" ).accordion({
+              collapsible: true
+          });
+        } );
+    </script>
 </head>
 <body>
     <nav>
@@ -58,5 +71,52 @@
             <p>Public <span id="members">12</span> members</p>
         </div>
     </section>
+
+    <main>
+        <aside>
+            <div id="accordion">
+                <h3><img src="./assets/hash.png" alt="channel"> Channels</h3>
+                <!-- <div></div> -->
+                <h3><img src="./assets/live_class.png" alt="live class">Live Classes</h3>
+                <!-- <div>
+                  <p>
+                  Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+                  purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+                  velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+                  suscipit faucibus urna.
+                  </p>
+                </div> -->
+                <h3>Members</h3>
+                <h3>Progress</h3>
+                <div>
+                  <p>
+                  Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+                  Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+                  ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+                  lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                  </p>
+                  <ul>
+                    <li>List item one</li>
+                    <li>List item two</li>
+                    <li>List item three</li>
+                  </ul>
+                </div>
+                <h3>Certifications</h3>
+                <!-- <div>
+                  <p>
+                  Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+                  et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+                  faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                  mauris vel est.
+                  </p>
+                  <p>
+                  Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+                  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+                  inceptos himenaeos.
+                  </p>
+                </div> -->
+              </div>
+        </aside>
+    </main>
 </body>
 </html>

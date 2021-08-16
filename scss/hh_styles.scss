@@ -23,3 +23,20 @@ body {
 
 }
 
+main {
+    background: #101012;
+    width: 940px;
+    margin: 0 auto;
+
+    aside {
+        color: $gray_primary;
+        padding: 20px;
+        width: 240px;
+        #accordion {
+            h3 {
+                font: 16px/18px $lato_font;
+                padding: 18px;
+            }
+        }
+    }
+}
