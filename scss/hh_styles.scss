@@ -1,8 +1,26 @@
-/*variables*/
-$black_primary: #1E1E1F;
-$lato_font:  'Lato', sans-serif;
+@import "partials/variables";
+@import "partials/nav";
+
+/*resets*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+ul {
+    li {
+        list-style-type: none;
+    }
+    margin: 0px;
+}
+
 
 body {
     background:$black_primary;
     font-size: $lato_font;
 }
+
+
+
+
