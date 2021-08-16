@@ -1,5 +1,6 @@
 @import "partials/variables";
 @import "partials/nav";
+@import "partials/banner";
 
 /*resets*/
 * {
@@ -19,8 +20,6 @@ ul {
 body {
     background:$black_primary;
     font-size: $lato_font;
+
 }
-
-
-
 
