@@ -1,8 +1,119 @@
 /*variables*/
 $black_primary: #1E1E1F;
+$gray_primary: #979797;
+$green_primary: #34C65C;
 $lato_font:  'Lato', sans-serif;
+
+/*resets*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+ul {
+    li {
+        list-style-type: none;
+    }
+    margin: 0px;
+}
+
 
 body {
     background:$black_primary;
     font-size: $lato_font;
 }
+
+nav {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    font: 14px/20px $lato_font;
+    height: 47px; //38
+    justify-content: space-between;
+    padding: 18px 30px;
+    width: 100%;
+
+    .brand  {
+        margin: 0px 12px 0px 0px;
+        // img {
+        //     height: 14px;
+        //     line-height: 20px;
+        // }
+      
+    }
+
+    ul{
+        li {
+            display: inline-block;
+            text-decoration: none;
+        } 
+       
+    }
+
+    #left_section,#right_section {
+        display: flex;
+        align-items: center;
+    }
+
+    #left_section {
+        ul {
+            li {
+                &:nth-child(1){
+                    margin: 0px 36px 0px 0px;
+                }
+                a {
+                    color: $gray_primary;
+                    font-weight: 700;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    &.active {
+                        color: $green_primary;
+                        position: relative;
+                        width: 68px;
+                        &::after {
+                            background: $green_primary;
+                            content: '';
+                            height: 2px;
+                            left: 0;
+                            position: absolute;
+                            top: 30px;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #right_section {
+        ul {
+            li {
+                &:nth-child(2) {
+                    margin: 0px 0px 0px 19px;
+                   
+                   a {
+                    color: #fff;
+                    font-weight: 700;
+                   }
+                }
+                
+                a {
+                    font-weight: 400;
+                    img {
+                        margin: 0px 11px 0px 0px;
+                    }
+                    i {
+                        margin: 0px 0px 0px 5px;
+                    }
+                    color: $green_primary;
+                }
+               
+            }
+        }
+    }
+}
+
+
