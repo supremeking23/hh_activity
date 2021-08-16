@@ -1,6 +1,7 @@
 @import "partials/variables";
 @import "partials/nav";
 
+$black_secondary: #161616;
 /*resets*/
 * {
     margin: 0;
@@ -19,8 +20,75 @@ ul {
 body {
     background:$black_primary;
     font-size: $lato_font;
+
 }
 
 
+#banner {
+    width: 940px; // 1480px
+    background: $black_secondary;
+    margin: 0 auto;
+    color: $gray_primary;
+    img {
+        width: 100%;
+    }
 
+    #banner_content {
+        padding: 20px;
+        #banner_actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            h2 {
+                font: 18px/10px $lato_font;
+                color: $white;
+                margin: 0;
+                button {
+                    background: transparent;
+                    border: none;
+                    color: $gray_primary;
+                    font-size: 14px;
+                    margin: 0px 0px 0px 5px;
+                }
+            }
 
+            div {
+                display: flex;
+                a {
+                    color: $green_primary;
+                    font: 14px/20px $lato_font;
+                    font-weight: 500;
+                    margin: 0px 20px 0px 0px;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 14px;
+                        margin: 0px 5px 0px 0px;
+                    }
+    
+                    &:nth-child(2){
+                        img {
+                            width: 12px;
+                        }
+                    }
+                }
+            }
+
+        }
+        p {
+            font: 14px/16px $lato_font;
+            margin: 20px 0px;
+            position: relative;
+            #members {
+               margin: 0px 0px 0px 13px;
+               &::before{
+                content: "\2022";
+                position: absolute;
+                left: 43px;
+               }
+            }
+        }
+    }
+
+}

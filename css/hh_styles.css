@@ -103,4 +103,89 @@ body {
   background: #1E1E1F;
   font-size: "Lato", sans-serif;
 }
+
+#banner {
+  width: 940px;
+  background: #161616;
+  margin: 0 auto;
+  color: #979797;
+}
+
+#banner img {
+  width: 100%;
+}
+
+#banner #banner_content {
+  padding: 20px;
+}
+
+#banner #banner_content #banner_actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#banner #banner_content #banner_actions h2 {
+  font: 18px/10px "Lato", sans-serif;
+  color: #fff;
+  margin: 0;
+}
+
+#banner #banner_content #banner_actions h2 button {
+  background: transparent;
+  border: none;
+  color: #979797;
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+}
+
+#banner #banner_content #banner_actions div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#banner #banner_content #banner_actions div a {
+  color: #34C65C;
+  font: 14px/20px "Lato", sans-serif;
+  font-weight: 500;
+  margin: 0px 20px 0px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#banner #banner_content #banner_actions div a img {
+  width: 14px;
+  margin: 0px 5px 0px 0px;
+}
+
+#banner #banner_content #banner_actions div a:nth-child(2) img {
+  width: 12px;
+}
+
+#banner #banner_content p {
+  font: 14px/16px "Lato", sans-serif;
+  margin: 20px 0px;
+  position: relative;
+}
+
+#banner #banner_content p #members {
+  margin: 0px 0px 0px 13px;
+}
+
+#banner #banner_content p #members::before {
+  content: "\2022";
+  position: absolute;
+  left: 43px;
+}
 /*# sourceMappingURL=hh_styles.css.map */
