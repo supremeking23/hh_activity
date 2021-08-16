@@ -24,57 +24,60 @@ body {
 }
 
 .ui-accordion-content {
-    // height: 0px;
     max-height: 200px;
-    padding: 0px 30px;
 }
+
+/* end resets*/
 
 main {
     background: #101012;
-    width: 940px;
-    min-height: 733px;
     margin: 18px auto;
+    min-height: 733px;
+    width: 940px;
    
     aside {
         background-color: #0E0E10;
         color: $gray_primary;
-        padding: 0px 20px;
-        width: 240px;
-        // background: cadetblue;
         min-height: inherit;
+        // padding: 0px 20px;
+        width: 240px;
+        
         #accordion {
             h3 {
                 font: 16px/18px $lato_font;
-                padding: 14px 0;
                 margin: 0;
+                padding: 14px 20px;
+                &.active {
+                    background: rgba(0, 158, 255, 0.15);
+                }
                 img {
-                    width: 16px;
                     margin: 0px 15px 0px 0px;
+                    width: 16px;
                 }
             }
 
             .ui-accordion-content {
+                margin: 9.5px 0px 0px 0px;
+                
                 ul {
                     li {
-                        margin: 0px 0px 10px 0px;
+                        margin: 0px 0px 10px 20px;                    
                         a {
                             color:$gray_primary;
+                            margin: 0px 0px 0px 30px;
                             text-decoration: none;
                         }
 
                         &:nth-child(3) {
+                            align-items: center;
                             background: #13231A;
                             border-radius: 3px;
-                            height: 37px;
-                            width: 157px;
                             display: flex;
-                            align-items: center;
+                            height: 37px;
                             position: relative;
-                            a {
-                                position:absolute;
-                                left: 10px;
-                            }
-                            // justify-content: center;
+                            width: 191px;
+                            margin-left: 35px;
+                            margin: 0px 0px 0px 20px;
                         }
                     }
                 }
