@@ -192,4 +192,68 @@ body {
   background: #1E1E1F;
   font-size: "Lato", sans-serif;
 }
+
+.ui-accordion-content {
+  max-height: 200px;
+}
+
+/* end resets*/
+main {
+  background: #101012;
+  margin: 18px auto;
+  min-height: 733px;
+  width: 940px;
+}
+
+main aside {
+  background-color: #0E0E10;
+  color: #979797;
+  min-height: inherit;
+  width: 240px;
+}
+
+main aside #accordion h3 {
+  font: 16px/18px "Lato", sans-serif;
+  margin: 0;
+  padding: 14px 20px;
+}
+
+main aside #accordion h3.active {
+  background: rgba(0, 158, 255, 0.15);
+}
+
+main aside #accordion h3 img {
+  margin: 0px 15px 0px 0px;
+  width: 16px;
+}
+
+main aside #accordion .ui-accordion-content {
+  margin: 9.5px 0px 0px 0px;
+}
+
+main aside #accordion .ui-accordion-content ul li {
+  margin: 0px 0px 10px 20px;
+}
+
+main aside #accordion .ui-accordion-content ul li a {
+  color: #979797;
+  margin: 0px 0px 0px 30px;
+  text-decoration: none;
+}
+
+main aside #accordion .ui-accordion-content ul li:nth-child(3) {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #13231A;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 37px;
+  position: relative;
+  width: 191px;
+  margin-left: 35px;
+  margin: 0px 0px 0px 20px;
+}
 /*# sourceMappingURL=hh_styles.css.map */
