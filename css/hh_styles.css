@@ -203,6 +203,9 @@ main {
   margin: 18px auto;
   min-height: 733px;
   width: 940px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 main aside {
@@ -255,5 +258,85 @@ main aside #accordion .ui-accordion-content ul li:nth-child(3) {
   width: 191px;
   margin-left: 35px;
   margin: 0px 0px 0px 20px;
+}
+
+main #main_display {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+main #main_display #main_display_head {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #161616;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 46px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+
+main #main_display #main_display_head p {
+  color: #979797;
+  font: 14px/19px "Lato", sans-serif;
+  margin: 0;
+}
+
+main #main_display #main_display_head p span {
+  color: #fff;
+  font: 16px/19px "Lato", sans-serif;
+}
+
+main #main_display #main_display_head button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  border: none;
+  color: #34C65C;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 97px;
+}
+
+main #main_display #main_display_head button img {
+  width: 12px;
+}
+
+main #main_display table {
+  background: #030303;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px 4px 0px 0px;
+  color: #34C65C;
+  width: 100%;
+}
+
+main #main_display table tbody tr {
+  height: 40px;
+}
+
+main #main_display table tbody tr td {
+  border-right: 1px solid #979797;
+  text-align: center;
+  min-width: 180px;
+}
+
+main #main_display table tbody tr td:first-child {
+  width: 230px;
+  text-align: left;
+  padding: 0px 0px 0px 20px;
+}
+
+main #main_display table tbody tr td:last-child {
+  border-right: none;
 }
 /*# sourceMappingURL=hh_styles.css.map */
