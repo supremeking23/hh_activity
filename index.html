@@ -33,7 +33,19 @@
               collapsible: true,
               active: 3
           });
+         
+          
+          $("#main_display").scroll(function(){
+            if($("#main_display").scrollLeft() > 5){
+                $("#assignments p").addClass("assigment_scrolling");
+            }else {
+                $("#assignments p").removeClass("assigment_scrolling");
+            }
+        })
+
         } );
+
+        
     </script>
 </head>
 <body>
@@ -55,8 +67,7 @@
         </div>
     </nav>
     
-    <section id="banner">
-        
+    <section id="banner">   
         <img src="./assets/banner.png" alt="banner">
         <div id="banner_content">
             <div id="banner_actions">
@@ -104,23 +115,27 @@
                 <p><span>Progress</span> (Choose the course this group will use, track member's progress and leave notes.)</p>
                 <button type="button"><img src="./assets/plus.png" alt=""> Add course</button>
             </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Assigments</td>
-                        <td>Vermilion, M... </td>
-                        <td>Eru, C... </td>
-                        <td>Jabami, Y... </td>
-                        <td>Sumeragi, I</td>
-                        <td>James, L..</td>
-                        <td>Jabami, Y... </td>
-                        <td>Sumeragi, I</td>
-                        <td>James, L..</td> <td>Jabami, Y... </td>
-                        <td>Sumeragi, I</td>
-                        <td>James, L..</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="assignments">
+                <p>Assigments</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Vermilion, M... </td>
+                            <td>Eru, C... </td>
+                            <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td>
+                            <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td> <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+           
         </section>
     </main>
 </body>
