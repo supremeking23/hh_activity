@@ -1,12 +1,32 @@
 import students_data from "./students_data.js";
+import courses_data from "./courses_data.js";
 
 $(document).ready(function(){
     loadStudents();
-    $('[data-toggle="popover"]').popover();
+    loadCourses();
+    
     $("#accordion").accordion({ collapsible: true, active: 3 });
     $("#main_display").scroll(detatchedElement);
+    $('#btn_add_course').on('click', function () {
+        // do something…
+        $("#course_form").toggleClass("show") 
+       
+    });
 });
 
+
+function loadCourses() {
+    let html = ``;
+    
+    for(let index = 0; index < courses_data.length; index++){
+        html += `<li>`; 
+        html += `<input type="checkbox"> ${courses_data[index].course_title}`   
+        html += `</li>`;
+    }
+
+    $("#course_list").html(html);
+    
+}
 
 async function getCountry(country) {
     try {

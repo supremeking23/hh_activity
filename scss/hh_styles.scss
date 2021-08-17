@@ -99,7 +99,7 @@ main {
             height: 46px;
             justify-content: space-between;
             padding: 20px;
-            position: sticky;
+            position: relative;
 
             p {
                 color: $gray_primary;
@@ -123,6 +123,8 @@ main {
                     width: 12px;
                 }
             }
+
+           
         }
 
        #assignments {
@@ -183,6 +185,57 @@ main {
            top: 245px;
        }
         
+    }
+
+    #course_form{
+        display: none;
+        position: absolute;
+        background: #101012;
+        color: $gray_primary;
+        z-index: 6;
+        right: 0;
+        bottom: -10px;
+        right: 285px;
+        // height: 431px;
+        &.show{
+            display: block;
+        }
+
+        ul {
+            min-height: 358px;
+            // height: 100px;
+            width: 258px;
+            overflow: auto;
+           
+
+            &::-webkit-scrollbar {
+                width: 1px;
+            }
+             
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            }
+             
+            &::-webkit-scrollbar-thumb {
+              background-color: darkgrey;
+              outline: 1px solid slategrey;
+            }
+            
+            li {
+                display: flex;
+                align-items: center;
+                height: 37px ;
+                border-bottom: 0.5px solid $gray_primary;
+                font: 14px/20px $lato_font;
+                padding: 10px;
+                
+                width: 100%;
+
+                input {
+                    margin: 0px 12px 0px 0px;
+                }
+            }
+        }
     }
 }
 
