@@ -172,6 +172,45 @@ nav #right_section ul li a i {
   margin: 0;
 }
 
+.tooltip_utility {
+  position: relative;
+}
+
+.tooltip_utility .tooltip_utility_text {
+  background-color: #000000;
+  border-radius: 15px;
+  border-radius: 6px;
+  bottom: 49px;
+  -webkit-box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font: 12px/18px "Lato", sans-serif;
+  left: 15px;
+  min-width: 147px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.tooltip_utility .tooltip_utility_text::before {
+  content: '';
+  position: absolute;
+  background: #000000;
+  height: 10px;
+  width: 30px;
+  bottom: -9px;
+  left: 60px;
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.tooltip_utility:hover .tooltip_utility_text {
+  visibility: visible;
+  cursor: pointer;
+}
+
 /*resets*/
 * {
   margin: 0;
@@ -206,6 +245,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 4;
 }
 
 main aside {
