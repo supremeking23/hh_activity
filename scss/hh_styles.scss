@@ -34,6 +34,7 @@ main {
     margin: 18px auto;
     min-height: 733px;
     width: 940px;
+    display: flex;
    
     aside {
         background-color: #0E0E10;
@@ -83,5 +84,102 @@ main {
                 }
             }
         }
+    }
+
+    #main_display {
+        width: 100%;
+        overflow: auto;
+        position: relative;
+        #main_display_head {
+            align-items: center;
+            background: #161616;
+            display: flex;
+            height: 46px;
+            justify-content: space-between;
+            padding: 20px;
+            position: sticky;
+
+            p {
+                color: $gray_primary;
+                font: 14px/19px $lato_font;
+                margin: 0;
+                span {
+                    color: $white;
+                    font: 16px/19px $lato_font;
+                }
+            }
+
+            button {
+                align-items: center;
+                background: transparent;
+                border: none;
+                color: $green_primary;
+                display: flex;
+                justify-content: space-between;
+                width: 97px;
+                img {
+                    width: 12px;
+                }
+            }
+        }
+
+       #assignments {
+           display: flex;
+           background: #030303;
+           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+           border-radius: 4px 4px 0px 0px;
+           position: relative;
+            p {
+                background: #030303;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                align-items: center;
+                color: $gray_primary;
+                display: flex;
+                height: 40px;
+                margin: 0;
+                min-width: 230px;
+                text-align: left;
+                padding: 0px 0px 0px 20px;
+
+                &.assigment_scrolling {
+                    position: fixed;
+                    top: 20px;
+                    left: 500px;
+                }
+            }
+
+            table {
+               
+                color: $green_primary;
+                width: 100%;
+               
+                tbody {
+                   
+                    tr {
+                        height: 40px;
+                        
+                        td {
+                            border-right: 1px solid #979797;
+                            text-align: center;
+                            min-width: 180px;
+    
+                            &:first-child{
+                                border-left: 1px solid #979797;
+                                width: 230px;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+
+       #add_course {
+           bottom: 365px;
+           left: 170px;
+           position: absolute;
+           right: 170px;
+           top: 245px;
+       }
+        
     }
 }

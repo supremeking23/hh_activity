@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://hackerhero.s3.us-west-2.amazonaws.com/1.1/assets/images/meta_image/HH%20header.png" name="image">
     <title>Hacker Hero</title>
 
     <!-- stylesheets -->
@@ -22,48 +23,37 @@
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="js/hh_scripts.js"></script>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <script>
-        $( function() {
-          $( "#accordion" ).accordion({
-              collapsible: true,
-              active: 3
-          });
-        } );
-    </script>
+    
+    <script src="js/hh_scripts.js"></script>
 </head>
 <body>
     <nav>
         <div id="left_section">
-            <a href="" class="brand">
+            <a href="javascript:void(0)" class="brand">
                 <img src="./assets/hh_logo_beta_2.png" alt="hacker_hero">
             </a>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="active">Groups</a></li>
+                <li><a href="javascript:void(0)">Home</a></li>
+                <li><a href="javascript:void(0)" class="active">Groups</a></li>
             </ul>
         </div>
         <div id="right_section">
             <ul>
-                <li><a href="#">Go Pro</a></li>
-                <li><a href="#"><img src="./assets/account_icon.png" alt="acount"/>Johnsmithx24 <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
+                <li><a href="javascript:void(0)">Go Pro</a></li>
+                <li><a href="javascript:void(0)"><img src="./assets/account_icon.png" alt="acount"/>Johnsmithx24 <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </nav>
     
-    <section id="banner">
-        
+    <section id="banner">   
         <img src="./assets/banner.png" alt="banner">
         <div id="banner_content">
             <div id="banner_actions">
                 <h2>Learn to Code <button type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button></h2>
                 <div>
-                    <a href=""> <img src="./assets/insert_link.png" alt="insert link"> Get Link</a>
-                    <a href=""> <img src="./assets/plus.png" alt="invite"> Invite
+                    <a href="javascript:void(0)"> <img src="./assets/insert_link.png" alt="insert link"> Get Link</a>
+                    <a href="javascript:void(0)"> <img src="./assets/plus.png" alt="invite"> Invite
                 </a>
                 </div>
             </div>
@@ -99,6 +89,32 @@
                
               </div>
         </aside>
+        <section id="main_display">
+            <div id="main_display_head">
+                <p><span>Progress</span> (Choose the course this group will use, track member's progress and leave notes.)</p>
+                <button type="button"><img src="./assets/plus.png" alt=""> Add course</button>
+            </div>
+            <div id="assignments">
+                <p>Assigments</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Vermilion, M... </td>
+                            <td>Eru, C... </td>
+                            <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td>
+                            <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td> <td>Jabami, Y... </td>
+                            <td>Sumeragi, I</td>
+                            <td>James, L..</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           <img src="./assets/keyboard.png" alt="keyboard" id="add_course">
+        </section>
     </main>
 </body>
 </html>
