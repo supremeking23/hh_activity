@@ -186,12 +186,17 @@ nav #right_section ul li a i {
   color: #fff;
   font: 12px/18px "Lato", sans-serif;
   left: 15px;
-  min-width: 147px;
+  min-width: 140px;
   padding: 10px;
   position: absolute;
   text-align: center;
   visibility: hidden;
   z-index: 1;
+}
+
+.tooltip_utility .tooltip_utility_text img {
+  width: 25px;
+  margin: 0px 10px 0px 0px;
 }
 
 .tooltip_utility .tooltip_utility_text::before {

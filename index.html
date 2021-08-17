@@ -24,9 +24,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <script type="module" src="js/hh_scripts.js"></script>
     <script>
+        async function getCountry(country) {
+            try {
+                const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
+               
+                return response.data[0].flag;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        $(document).ready(async function(){
+            try {
+                let country = await getCountry("Philippines");
+                console.log(country);
+                // console.log(country.data[0].flag);
+            } catch (error) {
+                
+            }
+        });
     </script>
 </head>
 <body>
@@ -62,8 +83,6 @@
             <p>This is a community for people who are learning how to code for the first time. This is a place where you can ask questions and get reliable answers. Complete the modules below to learn more.</p>
     
             <p>Public <span id="members">12</span> members</p>
-
-
         </div>
     </section>
 
