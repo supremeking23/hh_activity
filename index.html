@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://hackerhero.s3.us-west-2.amazonaws.com/1.1/assets/images/meta_image/HH%20header.png" name="image">
     <title>Hacker Hero</title>
 
     <!-- stylesheets -->
@@ -29,23 +30,22 @@
 
     <script>
         $( function() {
-          $( "#accordion" ).accordion({
-              collapsible: true,
-              active: 3
-          });
+            $( "#accordion" ).accordion({
+                collapsible: true,
+                active: 3
+            });
          
-          
-          $("#main_display").scroll(function(){
-            if($("#main_display").scrollLeft() > 5){
-                $("#assignments p").addClass("assigment_scrolling");
-            }else {
-                $("#assignments p").removeClass("assigment_scrolling");
-            }
-        })
+            $("#main_display").scroll(function(){
+                if($("#main_display").scrollLeft() > 5){
+                    $("#assignments p").addClass("assigment_scrolling");
+                }else {
+                    $("#assignments p").removeClass("assigment_scrolling");
+                }
 
-        } );
+               
+            });
 
-        
+        });
     </script>
 </head>
 <body>
@@ -133,9 +133,8 @@
                         </tr>
                     </tbody>
                 </table>
-                
             </div>
-           
+           <img src="./assets/keyboard.png" alt="keyboard" id="add_course">
         </section>
     </main>
 </body>

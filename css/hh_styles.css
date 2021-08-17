@@ -368,4 +368,12 @@ main #main_display #assignments table tbody tr td:first-child {
   border-left: 1px solid #979797;
   width: 230px;
 }
+
+main #main_display #add_course {
+  bottom: 365px;
+  left: 170px;
+  position: absolute;
+  right: 170px;
+  top: 245px;
+}
 /*# sourceMappingURL=hh_styles.css.map */
