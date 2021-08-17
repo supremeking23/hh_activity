@@ -669,7 +669,7 @@ export default [{
     "last_name": "Silmon",
     "email": "msilmon2n@cmu.edu",
     "gender": "Agender",
-    "country": "Gambia"
+    "country": "Philippines"
   }, {
     "id": 97,
     "first_name": "Nicol",
@@ -683,7 +683,7 @@ export default [{
     "last_name": "O'Hengerty",
     "email": "sohengerty2p@wikia.com",
     "gender": "Non-binary",
-    "country": "Haiti"
+    "country": "China"
   }, {
     "id": 99,
     "first_name": "Pasquale",

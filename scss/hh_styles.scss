@@ -1,6 +1,7 @@
 @import "partials/variables";
 @import "partials/nav";
 @import "partials/banner";
+@import "partials/utilities";
 
 /*resets*/
 * {
@@ -35,6 +36,7 @@ main {
     min-height: 733px;
     width: 940px;
     display: flex;
+    z-index: 4;
    
     aside {
         background-color: #0E0E10;
@@ -183,3 +185,10 @@ main {
         
     }
 }
+
+
+
+
+
+  
+ 
