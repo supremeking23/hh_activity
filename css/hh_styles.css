@@ -178,7 +178,6 @@ nav #right_section ul li a i {
 
 .tooltip_utility .tooltip_utility_text {
   background-color: #000000;
-  border-radius: 15px;
   border-radius: 6px;
   bottom: 49px;
   -webkit-box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -186,7 +185,9 @@ nav #right_section ul li a i {
   color: #fff;
   font: 12px/18px "Lato", sans-serif;
   left: 15px;
+  width: 100%;
   min-width: 140px;
+  min-height: 10px;
   padding: 10px;
   position: absolute;
   text-align: center;
@@ -465,7 +466,7 @@ main #main_display #course_form button#btn_add_course {
   margin: 29px 15px 0px 0px;
 }
 
-main #main_display #assignments {
+main #main_display #student_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,28 +477,29 @@ main #main_display #assignments {
   position: relative;
 }
 
-main #main_display #assignments p.assigment_scrolling {
+main #main_display #student_list p.assigment_scrolling {
   position: fixed;
   top: 20px;
   left: 500px;
 }
 
-main #main_display #assignments table {
+main #main_display #student_list table {
   color: #34C65C;
   width: 100%;
 }
 
-main #main_display #assignments table tbody tr {
+main #main_display #student_list table thead tr {
   height: 40px;
 }
 
-main #main_display #assignments table tbody tr td {
+main #main_display #student_list table thead tr th {
   border-right: 1px solid #979797;
-  text-align: center;
+  font-weight: normal;
   min-width: 180px;
+  text-align: center;
 }
 
-main #main_display #assignments table tbody tr td:first-child {
+main #main_display #student_list table thead tr th:first-child {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
