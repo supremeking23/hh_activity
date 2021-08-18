@@ -361,10 +361,84 @@ main #main_display #main_display_head button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 97px;
+  position: relative;
 }
 
 main #main_display #main_display_head button img {
   width: 12px;
+}
+
+main #main_display #course_form {
+  top: 40px;
+  color: #979797;
+  display: none;
+  height: 100%;
+  max-height: 450px;
+  position: absolute;
+  right: 0;
+  z-index: 6;
+  background: #0E0E10;
+  border-radius: 4px;
+}
+
+main #main_display #course_form.show {
+  display: block;
+}
+
+main #main_display #course_form ul {
+  min-height: 358px;
+  height: 100px;
+  width: 258px;
+  overflow: auto;
+}
+
+main #main_display #course_form ul::-webkit-scrollbar {
+  width: 1px;
+}
+
+main #main_display #course_form ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+main #main_display #course_form ul::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+main #main_display #course_form ul li {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0.5px solid #979797;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font: 14px/20px "Lato", sans-serif;
+  height: 37px;
+  padding: 10px;
+  width: 100%;
+}
+
+main #main_display #course_form ul li input {
+  margin: 0px 12px 0px 0px;
+}
+
+main #main_display #course_form button {
+  margin: 29px 0px 0px 0px;
+  display: inline-block;
+  width: 109px;
+}
+
+main #main_display #course_form button#btn_cancel_add_course {
+  background: #2B2B2D;
+  color: #fff;
+  margin: 29px 5px 0px 10px;
+}
+
+main #main_display #course_form button#btn_add_course {
+  background: #34C65C;
+  color: #fff;
+  margin: 29px 15px 0px 0px;
 }
 
 main #main_display #assignments {
@@ -422,63 +496,11 @@ main #main_display #assignments table tbody tr td:first-child {
   width: 230px;
 }
 
-main #main_display #add_course {
+main #main_display #add_course_image {
   bottom: 365px;
   left: 170px;
   position: absolute;
   right: 170px;
   top: 245px;
-}
-
-main #course_form {
-  display: none;
-  position: absolute;
-  background: #101012;
-  color: #979797;
-  z-index: 6;
-  right: 0;
-  bottom: -10px;
-  right: 285px;
-}
-
-main #course_form.show {
-  display: block;
-}
-
-main #course_form ul {
-  min-height: 358px;
-  width: 258px;
-  overflow: auto;
-}
-
-main #course_form ul::-webkit-scrollbar {
-  width: 1px;
-}
-
-main #course_form ul::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-main #course_form ul::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
-
-main #course_form ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 37px;
-  border-bottom: 0.5px solid #979797;
-  font: 14px/20px "Lato", sans-serif;
-  padding: 10px;
-  width: 100%;
-}
-
-main #course_form ul li input {
-  margin: 0px 12px 0px 0px;
 }
 /*# sourceMappingURL=hh_styles.css.map */

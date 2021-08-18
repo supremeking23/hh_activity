@@ -7,10 +7,8 @@ $(document).ready(function(){
     
     $("#accordion").accordion({ collapsible: true, active: 3 });
     $("#main_display").scroll(detatchedElement);
-    $('#btn_add_course').on('click', function () {
-        // do something…
-        $("#course_form").toggleClass("show") 
-       
+    $("body").on('click',"#btn_add_course, #btn_cancel_add_course",function () {
+        $("#course_form").toggleClass("show");       
     });
 });
 
