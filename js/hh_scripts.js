@@ -54,7 +54,7 @@ async function getCountry(country) {
 async function loadStudents() {
     try {
 
-        let html = ``;
+        let html = `<td>Assignments</td>`;
         
         for(let index = 0; index < students_data.length; index++){
             html += `<td class="tooltip_utility">${students_data[index].last_name}, ${students_data[index].first_name[0]}... 

@@ -243,16 +243,7 @@ main {
            border-radius: 4px 4px 0px 0px;
            position: relative;
             p {
-                background: #030303;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                align-items: center;
-                color: $gray_primary;
-                display: flex;
-                height: 40px;
-                margin: 0;
-                min-width: 230px;
-                text-align: left;
-                padding: 0px 0px 0px 20px;
+               
 
                 &.assigment_scrolling {
                     position: fixed;
@@ -277,8 +268,17 @@ main {
                             min-width: 180px;
     
                             &:first-child{
-                                border-left: 1px solid #979797;
-                                width: 230px;
+                                align-items: center;
+                                background: #030303;
+                                border-left: none;
+                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                                color: $gray_primary;
+                                display: flex;
+                                height: 40px;
+                                margin: 0;
+                                min-width: 230px;
+                                padding: 0px 0px 0px 20px;
+                                text-align: left;
                             }
                         }
                     }
