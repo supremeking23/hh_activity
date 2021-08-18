@@ -423,6 +423,30 @@ main #main_display #course_form ul li input {
   margin: 0px 12px 0px 0px;
 }
 
+main #main_display #course_form ul li input::before {
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 2px solid;
+  border-radius: 0;
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: close-quote;
+  display: inline-block;
+  height: 15px;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  -webkit-transition-property: background-color, border-color;
+  transition-property: background-color, border-color;
+  width: 15px;
+}
+
+main #main_display #course_form ul li input:checked:before {
+  background: #34C65C;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
 main #main_display #course_form button {
   margin: 29px 0px 0px 0px;
   display: inline-block;

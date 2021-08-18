@@ -18,7 +18,7 @@ function loadCourses() {
     
     for(let index = 0; index < courses_data.length; index++){
         html += `<li>`; 
-        html += `<input type="checkbox"> ${courses_data[index].course_title}`   
+        html += `<input type="checkbox" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
         html += `</li>`;
     }
 
