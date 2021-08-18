@@ -13,38 +13,104 @@ $(document).ready(function(){
             .on('click',"#btn_add_course, #btn_cancel_add_course",function () {
                 $("#course_form").toggleClass("show");       
             })
-            .on("submit","#course_form",function(){
-                let course_form = $(this);    
-                console.log(courses_selected);
-                course_form.trigger("reset");
-
-                let html = ``;
-                html += `<tr>`;
-                html += `<td>Added</td>`
-                html += `</tr>`;
-
-                $("#assignment_list").html(html);
-
-
-                // Get the snackbar DIV
-                var x = document.getElementById("snackbar");
-
-                // Add the "show" class to DIV
-                x.className = "show";
-
-                // After 3 seconds, remove the show class from DIV
-                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-
-                return false;
-            })
+            .on("submit","#course_form",submitCourseForm)
             .on("click",".courses",function(){
-                console.log($(this).val());
-                courses_selected.push($(this).val());
+                let course_id = $(this).val();
+
+                for(let index = 0; index < courses_data.length; index++){
+                    if(courses_data[index].id == course_id){
+                        courses_selected.push(courses_data[index]);
+                    }
+                }
+
+                console.log(courses_selected);
             });
     
 });
 
+function submitCourseForm(){
+    let course_form = $(this);  
+    let snackbar =  $("#snackbar");  
+    
+    course_form.trigger("reset");    
+    snackbar.addClass("show");
+    setTimeout(function(){ snackbar.removeClass("show"); }, 3000);
+    $("#add_course_image").hide();
 
+    loadAddedCourses();
+    
+    return false;
+}
+
+function loadAddedCourses(){
+    let html = addedCourseTemplate(courses_selected);
+    $("#courses_list").html(html);
+}
+
+function addedCourseTemplate(courses) {
+    let html_template = ``;
+    
+   for(let index = 0; index < courses.length;index++) {
+        html_template += `<div class="course">`;
+        html_template += `   <h5>${courses[index].course_title}</h5>`;
+        html_template += `   <table>`;
+        html_template += `       <tbody>`;
+        html_template += `           <tr>`;
+        html_template += `               <td>Algorithm I</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `           </tr>`;
+        html_template += `           <tr>`;
+        html_template += `               <td>Algorithm I</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `           </tr>`;
+        html_template += `           <tr>`;
+        html_template += `               <td>Algorithm I</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `           </tr>`;
+        html_template += `           <tr>`;
+        html_template += `               <td>Algorithm I</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `           </tr>`;
+        html_template += `           <tr>`;
+        html_template += `               <td>Algorithm I</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `               <td>--</td>`;
+        html_template += `           </tr>`;
+        html_template += `         </tbody>`;
+        html_template += `   </table>`;
+        html_template += `</div>`;
+   }
+
+   return html_template;
+}
 
 function loadCourses() {
     let html = ``;
