@@ -14,7 +14,7 @@ $(document).ready(function(){
                 $("#course_form").toggleClass("show");       
             })
             .on("submit","#course_form",submitCourseForm)
-            .on("click",".courses",function(){
+            .on("click", ".courses", function(){
                 let course_id = $(this).val();
 
                 for(let index = 0; index < courses_data.length; index++){
@@ -50,60 +50,65 @@ function loadAddedCourses(){
 function addedCourseTemplate(courses) {
     let html_template = ``;
     
-   for(let index = 0; index < courses.length;index++) {
+   for(let index = 0; index < courses.length; index++) {
         html_template += `<div class="course">`;
         html_template += `   <h5>${courses[index].course_title}</h5>`;
         html_template += `   <table>`;
         html_template += `       <tbody>`;
-        html_template += `           <tr>`;
-        html_template += `               <td>Algorithm I</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `           </tr>`;
-        html_template += `           <tr>`;
-        html_template += `               <td>Algorithm I</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `           </tr>`;
-        html_template += `           <tr>`;
-        html_template += `               <td>Algorithm I</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `           </tr>`;
-        html_template += `           <tr>`;
-        html_template += `               <td>Algorithm I</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `           </tr>`;
-        html_template += `           <tr>`;
-        html_template += `               <td>Algorithm I</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `               <td>--</td>`;
-        html_template += `           </tr>`;
+      
+        for(let assignment = 0; assignment < courses[index].assignments.length; assignment++) {
+            html_template += `           <tr>`;
+            html_template += `               <td>${courses[index].assignments[assignment]}</td>`;
+            for(let student = 0; student < students_data.length; student++) {
+                html_template += `            <td>--</td>`;
+            }
+            // html_template += `               <td>--</td>`;
+            // html_template += `               <td>--</td>`;
+            // html_template += `               <td>--</td>`;
+            // html_template += `               <td>--</td>`;
+            // html_template += `               <td>--</td>`;
+            // html_template += `               <td>--</td>`;
+            html_template += `           </tr>`;
+        }
+        // html_template += `           <tr>`;
+        // html_template += `               <td>Algorithm I</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `           </tr>`;
+        // html_template += `           <tr>`;
+        // html_template += `               <td>Algorithm I</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `           </tr>`;
+        // html_template += `           <tr>`;
+        // html_template += `               <td>Algorithm I</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `           </tr>`;
+        // html_template += `           <tr>`;
+        // html_template += `               <td>Algorithm I</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `               <td>--</td>`;
+        // html_template += `           </tr>`;
         html_template += `         </tbody>`;
         html_template += `   </table>`;
         html_template += `</div>`;
