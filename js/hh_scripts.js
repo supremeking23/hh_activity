@@ -17,6 +17,24 @@ $(document).ready(function(){
                 let course_form = $(this);    
                 console.log(courses_selected);
                 course_form.trigger("reset");
+
+                let html = ``;
+                html += `<tr>`;
+                html += `<td>Added</td>`
+                html += `</tr>`;
+
+                $("#assignment_list").html(html);
+
+
+                // Get the snackbar DIV
+                var x = document.getElementById("snackbar");
+
+                // Add the "show" class to DIV
+                x.className = "show";
+
+                // After 3 seconds, remove the show class from DIV
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
                 return false;
             })
             .on("click",".courses",function(){
@@ -25,6 +43,7 @@ $(document).ready(function(){
             });
     
 });
+
 
 
 function loadCourses() {
@@ -54,12 +73,12 @@ async function getCountry(country) {
 async function loadStudents() {
     try {
 
-        let html = ``;
+        let html = `<th>Assignments</th>`;
         
         for(let index = 0; index < students_data.length; index++){
-            html += `<td class="tooltip_utility">${students_data[index].last_name}, ${students_data[index].first_name[0]}... 
+            html += `<th class="tooltip_utility">${students_data[index].last_name}, ${students_data[index].first_name[0]}... 
                 <span class="tooltip_utility_text"><img src="${await getCountry(students_data[index].country)}" /> ${students_data[index].last_name}, ${students_data[index].first_name}</span>
-            </td>`;
+            </th>`;
         }
         $("#student_row").html(html);
 
