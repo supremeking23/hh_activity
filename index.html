@@ -29,25 +29,6 @@
     
     <script type="module" src="js/hh_scripts.js"></script>
     <script>
-        async function getCountry(country) {
-            try {
-                const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
-               
-                return response.data[0].flag;
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        $(document).ready(async function(){
-            try {
-                let country = await getCountry("Philippines");
-                console.log(country);
-                // console.log(country.data[0].flag);
-            } catch (error) {
-                
-            }
-        });
     </script>
 </head>
 <body>
@@ -112,11 +93,19 @@
                
               </div>
         </aside>
+        
         <section id="main_display">
             <div id="main_display_head">
                 <p><span>Progress</span> (Choose the course this group will use, track member's progress and leave notes.)</p>
-                <button type="button"><img src="./assets/plus.png" alt=""> Add course</button>
+                <button type="button" id="btn_add_course"><img src="./assets/plus.png" alt=""> Add course</button>
             </div>
+
+            <form id="course_form" method="post">
+                <ul id="course_list"></ul>
+                <button type="button" class="btn" id="btn_cancel_add_course">Cancel</button>
+                <button type="submit" class="btn" id="btn_add_course">Add</button>
+            </form>
+
             <div id="assignments">
                 <p>Assigments</p>
                 <table>
@@ -136,8 +125,10 @@
                     </tbody>
                 </table>
             </div>
-           <img src="./assets/keyboard.png" alt="keyboard" id="add_course">
-        </section>
+           <img src="./assets/keyboard.png" alt="keyboard" id="add_course_image">
+        </section> 
+
     </main>
+
 </body>
 </html>

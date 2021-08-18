@@ -172,7 +172,7 @@ export default [{
     "last_name": "Lichtfoth",
     "email": "tlichtfotho@jiathis.com",
     "gender": "Polygender",
-    "country": "Palestinian Territory"
+    "country": "Peru"
   }, {
     "id": 26,
     "first_name": "Kevina",
