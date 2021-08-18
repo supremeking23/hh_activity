@@ -424,22 +424,22 @@ main #main_display #course_form ul li input {
 }
 
 main #main_display #course_form ul li input::before {
-  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 2px solid;
-  border-radius: 0;
   background-color: transparent;
   border-color: transparent;
+  border-radius: 0;
+  border: 2px solid;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   content: close-quote;
   display: inline-block;
-  height: 15px;
+  height: 16px;
   -webkit-transition-duration: .5s;
           transition-duration: .5s;
   -webkit-transition-property: background-color, border-color;
   transition-property: background-color, border-color;
-  width: 15px;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 16px;
 }
 
 main #main_display #course_form ul li input:checked:before {

@@ -1,15 +1,29 @@
 import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
 
+let courses_selected = [];
+
 $(document).ready(function(){
     loadStudents();
     loadCourses();
     
     $("#accordion").accordion({ collapsible: true, active: 3 });
     $("#main_display").scroll(detatchedElement);
-    $("body").on('click',"#btn_add_course, #btn_cancel_add_course",function () {
-        $("#course_form").toggleClass("show");       
-    });
+    $("body")
+            .on('click',"#btn_add_course, #btn_cancel_add_course",function () {
+                $("#course_form").toggleClass("show");       
+            })
+            .on("submit","#course_form",function(){
+                let course_form = $(this);    
+                console.log(courses_selected);
+                course_form.trigger("reset");
+                return false;
+            })
+            .on("click",".courses",function(){
+                console.log($(this).val());
+                courses_selected.push($(this).val());
+            });
+    
 });
 
 
@@ -18,12 +32,11 @@ function loadCourses() {
     
     for(let index = 0; index < courses_data.length; index++){
         html += `<li>`; 
-        html += `<input type="checkbox" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
+        html += `<input type="checkbox" class="courses" name="courses" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
         html += `</li>`;
     }
 
-    $("#course_list").html(html);
-    
+    $("#course_list").html(html);   
 }
 
 async function getCountry(country) {
