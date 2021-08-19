@@ -607,6 +607,12 @@ main #main_display #student_list table thead tr th:first-child {
   min-width: 230px;
   padding: 0px 0px 0px 20px;
   text-align: left;
+  position: fixed;
+}
+
+main #main_display #student_list table thead tr th:nth-child(2) {
+  padding: 0px 0px 0px 220px;
+  min-width: 400px;
 }
 
 main #main_display #courses_list .course h5 {
