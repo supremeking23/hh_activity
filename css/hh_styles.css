@@ -418,6 +418,20 @@ main #main_display {
   position: relative;
 }
 
+main #main_display::-webkit-scrollbar {
+  height: 3px;
+  width: 2px;
+}
+
+main #main_display::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+main #main_display::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 2px solid slategrey;
+}
+
 main #main_display #main_display_head {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -458,8 +472,8 @@ main #main_display #main_display_head button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 97px;
   position: relative;
+  width: 97px;
 }
 
 main #main_display #main_display_head button img {
@@ -467,16 +481,16 @@ main #main_display #main_display_head button img {
 }
 
 main #main_display #course_form {
-  top: 40px;
+  background: #0E0E10;
+  border-radius: 4px;
   color: #979797;
   display: none;
   height: 100%;
   max-height: 450px;
   position: absolute;
   right: 0;
+  top: 40px;
   z-index: 6;
-  background: #0E0E10;
-  border-radius: 4px;
 }
 
 main #main_display #course_form.show {
@@ -484,10 +498,10 @@ main #main_display #course_form.show {
 }
 
 main #main_display #course_form ul {
-  min-height: 358px;
   height: 100px;
-  width: 258px;
+  min-height: 358px;
   overflow: auto;
+  width: 258px;
 }
 
 main #main_display #course_form ul::-webkit-scrollbar {
@@ -541,13 +555,12 @@ main #main_display #course_form ul li input::before {
 }
 
 main #main_display #course_form ul li input:checked:before {
-  background: #34C65C;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+  background: #34C65C url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
 }
 
 main #main_display #course_form button {
-  margin: 29px 0px 0px 0px;
   display: inline-block;
+  margin: 29px 0px 0px 0px;
   width: 109px;
 }
 
@@ -564,13 +577,13 @@ main #main_display #course_form button#btn_add_course {
 }
 
 main #main_display #student_list {
+  background: #030303;
+  border-radius: 4px 4px 0px 0px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #030303;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px 4px 0px 0px;
   position: relative;
 }
 
