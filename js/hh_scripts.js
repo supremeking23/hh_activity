@@ -16,10 +16,8 @@ $(document).ready(function(){
 });
 
 function checkCourse(){
-    let course_id = $(this).val();
-
     for(let course = 0; course < courses_data.length; course++){
-        if(courses_data[course].id == course_id){
+        if(courses_data[course].id == $(this).val()){
             courses_selected.push(courses_data[course]);
         }
     }
@@ -28,39 +26,41 @@ function checkCourse(){
 
 
 function loadCourses(){
-    let html = ``;
+    let html_template = ``;
     
     for(let index = 0; index < courses_data.length; index++){
-        html += `<li>`; 
-        html += `   <input type="checkbox" class="courses" name="courses" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
-        html += `</li>`;
+        html_template += `<li>`; 
+        html_template += `   <input type="checkbox" class="courses" name="courses" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
+        html_template += `</li>`;
     }
 
-    $("#course_list").html(html);   
+    $("#course_list").html(html_template);   
 }
 
 async function getCountry(country){
-    try {
+    try{
         const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
         
         return response.data[0].flag;
 
-    } catch (error){}
+    } 
+    catch (error){}
 
 }
 
 async function loadStudents(){
-    try {
-        let html = `<th>Assignments</th>`;
+    try{
+        let html_template = `<th>Assignments</th>`;
         
         for(let student = 0; student < students_data.length; student++){
-            html += `<th class="tooltip_utility">${students_data[student].last_name}, ${students_data[student].first_name[0]}... 
+            html_template += `<th class="tooltip_utility">${students_data[student].last_name}, ${students_data[student].first_name[0]}... 
                 <span class="tooltip_utility_text"><img src="${await getCountry(students_data[student].country)}" /> ${students_data[student].last_name}, ${students_data[student].first_name}</span>
             </th>`;
         }
-        $("#student_row").html(html);
+        $("#student_row").html(html_template);
 
-    } catch (error){}
+    } 
+    catch (error){}
 }
 
 
@@ -79,8 +79,7 @@ function submitCourseForm(){
 }
 
 function loadAddedCourses(){
-    let html = addedCourseTemplate(courses_selected);
-    $("#courses_list").html(html);
+    $("#courses_list").html(addedCourseTemplate(courses_selected));
 }
 
 function addedCourseTemplate(courses){
