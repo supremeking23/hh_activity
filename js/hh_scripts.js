@@ -1,9 +1,12 @@
 import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
 
+
+
 $(document).ready(function(){
     loadAddedCourses();
     loadCourses();
+  
     loadStudents();
     
     $("#accordion").accordion({ collapsible: true, active: 3 });
@@ -14,9 +17,10 @@ $(document).ready(function(){
    
             
     // check to see if courses is already selected, then change the add course button to edit course
-    let courses_added = courses_data.find((course) => course.is_selected);
-    console.log((courses_added === undefined) ? "wala data" : courses_added);
+    
 });
+
+
 
 function updateCheckCourse(){ 
     $("#course_form").toggleClass("show").trigger("reset"); 
@@ -32,7 +36,9 @@ function checkCourse(){
 function loadCourses(){
     let html_template = ``;
     let courses_added = courses_data.filter((course) => course.is_selected);
-    console.log(courses_added);
+    let btn_add_course = $("#btn_add_course");
+    let btn_add_course_submit = $("#btn_add_course_submit");
+
     for(let course = 0; course < courses_data.length; course++){
         html_template += `<li>`; 
         html_template += `   <label>`;
@@ -41,6 +47,15 @@ function loadCourses(){
         html_template += `      <p>${courses_data[course].course_title}</p>`;
         html_template += `   </label>`;   
         html_template += `</li>`;
+    }
+
+    if(courses_added.length > 0) {
+        btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> Edit Course`);
+        btn_add_course_submit.html("Update");
+    }
+    else {
+        btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> Add Course`);
+        btn_add_course_submit.html("Add");
     }
 
     $("#course_list").html(html_template);   
