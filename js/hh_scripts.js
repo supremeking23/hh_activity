@@ -8,11 +8,19 @@ $(document).ready(function(){
     
     $("#accordion").accordion({ collapsible: true, active: 3 });
     $("body")
-            .on('click',"#btn_add_course, #btn_cancel_add_course", function () { $("#course_form").toggleClass("show"); })
+            .on('click',"#btn_add_course, #btn_cancel_add_course", updateCheckCourse)
             .on("submit", "#course_form", submitCourseForm)
             .on("click", ".courses", checkCourse);
-    
+   
+            
+    // check to see if courses is already selected, then change the add course button to edit course
+    let courses_added = courses_data.find((course) => course.is_selected);
+    console.log((courses_added === undefined) ? "wala data" : courses_added);
 });
+
+function updateCheckCourse(){ 
+    $("#course_form").toggleClass("show").trigger("reset"); 
+}
 
 function checkCourse(){
     for(let course = 0; course < courses_data.length; course++){
@@ -23,13 +31,14 @@ function checkCourse(){
 
 function loadCourses(){
     let html_template = ``;
-    
-    for(let index = 0; index < courses_data.length; index++){
+    let courses_added = courses_data.filter((course) => course.is_selected);
+    console.log(courses_added);
+    for(let course = 0; course < courses_data.length; course++){
         html_template += `<li>`; 
         html_template += `   <label>`;
-        html_template += `      <input type="checkbox" class="courses" name="courses" ${(courses_data[index].is_selected) ? "checked" : ""} value="${courses_data[index].id}">`;
+        html_template += `      <input type="checkbox" class="courses" name="courses" ${(courses_data[course].is_selected) ? "checked" : ""} value="${courses_data[course].id}">`;
         html_template += `      <span></span>`;
-        html_template += `      <p>${courses_data[index].course_title}</p>`;
+        html_template += `      <p>${courses_data[course].course_title}</p>`;
         html_template += `   </label>`;   
         html_template += `</li>`;
     }
@@ -72,7 +81,7 @@ function submitCourseForm(){
     course_form.trigger("reset");    
     snackbar.addClass("show");
     setTimeout(function(){ snackbar.removeClass("show"); }, 3000);
-    
+    course_form.toggleClass("show");
     loadAddedCourses();
     loadCourses();
     return false;
@@ -83,7 +92,6 @@ function loadAddedCourses(){
 }
 
 function addedCourseTemplate(courses){
-    console.log(courses);
     let html_template = ``;
     
    for(let course = 0; course < courses.length; course++) {

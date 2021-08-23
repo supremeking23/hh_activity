@@ -162,6 +162,7 @@ main {
             position: absolute;
             right: 0; 
             top: 40px;
+            width: 255px;
             z-index: 6;
             
             &.show{
@@ -196,7 +197,10 @@ main {
                     width: 100%;
         
                     label {
-                        display: block;
+                        display: flex;
+                        background: transparent;
+                        justify-content: space-between;
+                        align-items: center;
                         position: relative;
                         cursor: pointer;
                         -webkit-user-select: none;
@@ -231,8 +235,8 @@ main {
                             left: 0;
                             height: 20px;
                             width: 20px;
-                           background: transparent;
-                           border: 1px solid $gray_primary;
+                            background: transparent;
+                            border: 1px solid $gray_primary;
 
                             &::after {
                                 -ms-transform: rotate(45deg);
@@ -251,7 +255,7 @@ main {
                         }
 
                         p {
-                            margin: 0px 0px 0px 40px;
+                            margin: 0px 0px 0px 28px;
                         }
 
                         // &:hover {
@@ -274,7 +278,7 @@ main {
                     margin: 29px 5px 0px 10px;
                 }
         
-                &#btn_add_course {
+                &#btn_add_course_submit {
                     background: $green_primary;
                     color: $white;
                     margin: 29px 15px 0px 0px ; 
