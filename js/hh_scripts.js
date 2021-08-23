@@ -1,8 +1,6 @@
 import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
 
-
-
 $(document).ready(function(){
     loadAddedCoursesToDOM();
     loadCourses();
@@ -24,12 +22,13 @@ $(document).ready(function(){
             .on('click',"#btn_add_course, #btn_cancel_add_course", updateCheckCourse)
             .on("submit", "#course_form", submitCourseForm)
             .on("click", ".courses", checkCourse)
-            .on('click', 'td',function(){ 
-                console.log("sdsdsd");
+            .on('click','td' ,function(){ 
+
+                // $(this).closest("tr").siblings().css("background","blue");
+                // $(this).closest("tr").css("background","red");
             });
     
 });
-
 
 
 function updateCheckCourse(){ 
@@ -116,7 +115,8 @@ function addedCourseTemplate(courses){
                html_template += `               <td>${courses[course].assignments[assignment]}</td>`;
                 
                for(let student = 0; student < students_data.length; student++) {
-                   html_template += `            <td>--</td>`;
+                   let has_output = Math.floor(Math.random() * 2);
+                   html_template += `            <td>${(has_output === 0) ? "--" : "5/28/21"}</td>`;
                 }
                 
                html_template += `           </tr>`;
