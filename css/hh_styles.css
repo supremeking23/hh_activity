@@ -494,6 +494,7 @@ main #main_display #course_form {
   position: absolute;
   right: 0;
   top: 40px;
+  width: 255px;
   z-index: 6;
 }
 
@@ -535,7 +536,16 @@ main #main_display #course_form ul li {
 }
 
 main #main_display #course_form ul li label {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: transparent;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
@@ -590,7 +600,7 @@ main #main_display #course_form ul li label span::after {
 }
 
 main #main_display #course_form ul li label p {
-  margin: 0px 0px 0px 40px;
+  margin: 0px 0px 0px 28px;
 }
 
 main #main_display #course_form button {
@@ -605,7 +615,7 @@ main #main_display #course_form button#btn_cancel_add_course {
   margin: 29px 5px 0px 10px;
 }
 
-main #main_display #course_form button#btn_add_course {
+main #main_display #course_form button#btn_add_course_submit {
   background: #34C65C;
   color: #fff;
   margin: 29px 15px 0px 0px;
