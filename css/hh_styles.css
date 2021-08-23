@@ -669,7 +669,12 @@ main #main_display #student_list table thead tr th:first-child {
 
 main #main_display #courses_list .course h5 {
   color: #009EFF;
+  font: 16px/19.2px "Lato", sans-serif;
   padding: 20px;
+}
+
+main #main_display #courses_list .course h5 img {
+  margin: 0px 10px 0px 0px;
 }
 
 main #main_display #courses_list .course table {
@@ -707,7 +712,7 @@ main #main_display #courses_list .course table tbody tr td:first-child {
   height: 40px;
   margin: 0;
   min-width: 230px;
-  padding: 0px 0px 0px 20px;
+  padding: 0px 0px 0px 40px;
   text-align: left;
 }
 

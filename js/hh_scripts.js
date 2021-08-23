@@ -10,6 +10,17 @@ $(document).ready(function(){
     loadStudents();
     
     $("#accordion").accordion({ collapsible: true, active: 3 });
+
+    $("#courses_list").sortable({
+        // revert: true /*animation when move to new location*/,
+    });
+
+    $(".course").draggable({
+        connectToSortable: "#courses_list",
+        // helper: "clone",
+        revert: "invalid",
+    });
+
     $("body")
             .on('click',"#btn_add_course, #btn_cancel_add_course", updateCheckCourse)
             .on("submit", "#course_form", submitCourseForm)
@@ -117,8 +128,8 @@ function addedCourseTemplate(courses){
    for(let course = 0; course < courses.length; course++) {
        
     if (courses[course].is_selected){
-           html_template += `<div class="course">`;
-           html_template += `   <h5>${courses[course].course_title}</h5>`;
+           html_template += `<li class="course">`;
+           html_template += `   <h5><img src="./assets/draggable_icon.png" alt="draggable_icon"/> ${courses[course].course_title}</h5>`;
            html_template += `   <table>`;
            html_template += `       <tbody>`;
 
@@ -135,7 +146,7 @@ function addedCourseTemplate(courses){
 
             html_template += `         </tbody>`;
             html_template += `   </table>`;
-            html_template += `</div>`;
+            html_template += `</li>`;
        }
    }
 

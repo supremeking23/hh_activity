@@ -331,10 +331,20 @@ main {
 
        #courses_list {
            .course {
+              
                h5 {
                   color: #009EFF; 
+                  font: 16px/19.2px $lato_font;
                   padding: 20px;
+                  img {
+                      margin: 0px 10px 0px 0px;
+                  }
                }
+
+            //    h5, img {
+            //        display: inline-block;
+            //        vertical-align: middle;
+            //    }
 
                table {
                 color: $green_primary;
@@ -345,9 +355,11 @@ main {
                         tr {
                         height: 40px;
                         background: #030303;
+                       
                         &:nth-child(even){
                            background: rgba(3, 3, 3, 0.5);
                         }
+                        
                         td{
                             border-right: 1px solid #979797;
                             font-weight: normal;
@@ -363,7 +375,7 @@ main {
                                 height: 40px;
                                 margin: 0;
                                 min-width: 230px;
-                                padding: 0px 0px 0px 20px;
+                                padding: 0px 0px 0px 40px;
                                 text-align: left;
                             }
                         }
