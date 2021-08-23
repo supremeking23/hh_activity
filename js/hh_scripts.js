@@ -14,9 +14,6 @@ $(document).ready(function(){
             .on('click',"#btn_add_course, #btn_cancel_add_course", updateCheckCourse)
             .on("submit", "#course_form", submitCourseForm)
             .on("click", ".courses", checkCourse);
-   
-            
-    // check to see if courses is already selected, then change the add course button to edit course
     
 });
 
@@ -91,7 +88,15 @@ async function loadStudents(){
 function submitCourseForm(){
     let course_form = $(this);  
     let snackbar =  $("#snackbar");  
+    let btn_add_course_submit = course_form.find("#btn_add_course_submit");
     
+    if(btn_add_course_submit.text() === "Update"){
+        snackbar.find("span").text("Courses and assignments successfully updated.");
+    }
+    else{
+        snackbar.find("span").text("Courses and assignments successfully added.");
+    }
+
     $("#add_course_image").hide();
     course_form.trigger("reset");    
     snackbar.addClass("show");
