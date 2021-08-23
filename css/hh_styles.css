@@ -23,7 +23,7 @@ nav ul li {
   text-decoration: none;
 }
 
-nav #left_section, nav #right_section {
+nav #navigation_link_section, nav #account_section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,26 +32,26 @@ nav #left_section, nav #right_section {
           align-items: center;
 }
 
-nav #left_section ul li:nth-child(1) {
+nav #navigation_link_section ul li:nth-child(1) {
   margin: 0px 36px 0px 0px;
 }
 
-nav #left_section ul li a {
+nav #navigation_link_section ul li a {
   color: #979797;
   font-weight: 700;
 }
 
-nav #left_section ul li a:hover {
+nav #navigation_link_section ul li a:hover {
   text-decoration: none;
 }
 
-nav #left_section ul li a.active {
+nav #navigation_link_section ul li a.active {
   color: #34C65C;
   position: relative;
   width: 68px;
 }
 
-nav #left_section ul li a.active::after {
+nav #navigation_link_section ul li a.active::after {
   background: #34C65C;
   content: '';
   height: 2px;
@@ -61,25 +61,25 @@ nav #left_section ul li a.active::after {
   width: 100%;
 }
 
-nav #right_section ul li:nth-child(2) {
+nav #account_section ul li:nth-child(2) {
   margin: 0px 0px 0px 19px;
 }
 
-nav #right_section ul li:nth-child(2) a {
+nav #account_section ul li:nth-child(2) a {
   color: #fff;
   font-weight: 700;
 }
 
-nav #right_section ul li a {
+nav #account_section ul li a {
   font-weight: 400;
   color: #34C65C;
 }
 
-nav #right_section ul li a img {
+nav #account_section ul li a img {
   margin: 0px 11px 0px 0px;
 }
 
-nav #right_section ul li a i {
+nav #account_section ul li a i {
   margin: 0px 0px 0px 5px;
 }
 
