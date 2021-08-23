@@ -30,7 +30,11 @@ function loadCourses(){
     
     for(let index = 0; index < courses_data.length; index++){
         html_template += `<li>`; 
-        html_template += `   <input type="checkbox" class="courses" name="courses" value="${courses_data[index].id}"> ${courses_data[index].course_title}`   
+        html_template += `   <label>`;
+        html_template += `      <input type="checkbox" class="courses" name="courses" value="${courses_data[index].id}">`;
+        html_template += `      <span></span>`;
+        html_template += `      <p>${courses_data[index].course_title}</p>`;
+        html_template += `   </label>`;   
         html_template += `</li>`;
     }
 
