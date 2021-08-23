@@ -4,7 +4,7 @@ import courses_data from "./courses_data.js";
 
 
 $(document).ready(function(){
-    loadAddedCourses();
+    loadAddedCoursesToDOM();
     loadCourses();
   
     loadStudents();
@@ -16,15 +16,17 @@ $(document).ready(function(){
     });
 
     $(".course").draggable({
-        connectToSortable: "#courses_list",
-        // helper: "clone",
+        connectToSortable: "#courses_list", 
         revert: "invalid",
     });
 
     $("body")
             .on('click',"#btn_add_course, #btn_cancel_add_course", updateCheckCourse)
             .on("submit", "#course_form", submitCourseForm)
-            .on("click", ".courses", checkCourse);
+            .on("click", ".courses", checkCourse)
+            .on('click', 'td',function(){ 
+                console.log("sdsdsd");
+            });
     
 });
 
@@ -43,10 +45,7 @@ function checkCourse(){
 
 function loadCourses(){
     let html_template = ``;
-    let courses_added = courses_data.filter((course) => course.is_selected);
-    let btn_add_course = $("#btn_add_course");
-    let btn_add_course_submit = $("#btn_add_course_submit");
-
+  
     for(let course = 0; course < courses_data.length; course++){
         html_template += `<li>`; 
         html_template += `   <label>`;
@@ -55,6 +54,26 @@ function loadCourses(){
         html_template += `      <p>${courses_data[course].course_title}</p>`;
         html_template += `   </label>`;   
         html_template += `</li>`;
+    }
+
+
+    $("#course_list").html(html_template);   
+}
+
+
+
+function submitCourseForm(){
+    let course_form = $(this);  
+    let snackbar =  $("#snackbar");  
+    let btn_add_course_submit = course_form.find("#btn_add_course_submit");
+    let btn_add_course = $("#btn_add_course");
+    let courses_added = courses_data.filter((course) => course.is_selected);
+    
+    if(btn_add_course_submit.text() === "Update"){
+        snackbar.find("span").text("Courses and assignments successfully updated.");
+    }
+    else{
+        snackbar.find("span").text("Courses and assignments successfully added.");
     }
 
     if(courses_added.length > 0) {
@@ -66,59 +85,18 @@ function loadCourses(){
         btn_add_course_submit.html("Add");
     }
 
-    $("#course_list").html(html_template);   
-}
-
-async function getCountry(country){
-    try{
-        const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
-        
-        return response.data[0].flag;
-
-    } 
-    catch (error){}
-
-}
-
-async function loadStudents(){
-    try{
-        let html_template = `<th>Assignments</th>`;
-        
-        for(let student = 0; student < students_data.length; student++){
-            html_template += `<th class="tooltip_utility">${students_data[student].last_name}, ${students_data[student].first_name[0]}... 
-                <span class="tooltip_utility_text"><img src="${await getCountry(students_data[student].country)}" /> ${students_data[student].last_name}, ${students_data[student].first_name}</span>
-            </th>`;
-        }
-        $("#student_row").html(html_template);
-
-    } 
-    catch (error){}
-}
-
-
-function submitCourseForm(){
-    let course_form = $(this);  
-    let snackbar =  $("#snackbar");  
-    let btn_add_course_submit = course_form.find("#btn_add_course_submit");
-    
-    if(btn_add_course_submit.text() === "Update"){
-        snackbar.find("span").text("Courses and assignments successfully updated.");
-    }
-    else{
-        snackbar.find("span").text("Courses and assignments successfully added.");
-    }
-
     $("#add_course_image").hide();
     course_form.trigger("reset");    
     snackbar.addClass("show");
     setTimeout(function(){ snackbar.removeClass("show"); }, 3000);
     course_form.toggleClass("show");
-    loadAddedCourses();
+    loadAddedCoursesToDOM();
     loadCourses();
+
     return false;
 }
 
-function loadAddedCourses(){
+function loadAddedCoursesToDOM(){
     $("#courses_list").html(addedCourseTemplate(courses_data));
 }
 
@@ -151,4 +129,31 @@ function addedCourseTemplate(courses){
    }
 
    return html_template;
+}
+
+
+async function getCountry(country){
+    try{
+        const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
+        
+        return response.data[0].flag;
+
+    } 
+    catch (error){}
+
+}
+
+async function loadStudents(){
+    try{
+        let html_template = `<th>Assignments</th>`;
+        
+        for(let student = 0; student < students_data.length; student++){
+            html_template += `<th class="tooltip_utility">${students_data[student].last_name}, ${students_data[student].first_name[0]}... 
+                <span class="tooltip_utility_text"><img src="${await getCountry(students_data[student].country)}" /> ${students_data[student].last_name}, ${students_data[student].first_name}</span>
+            </th>`;
+        }
+        $("#student_row").html(html_template);
+
+    } 
+    catch (error){}
 }
