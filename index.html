@@ -129,5 +129,62 @@
         <button type="button"><img src="./assets/dismiss_icon.png" alt="dismiss icon"/></button>
     </div>
 
+
+  
+  <!-- Modal -->
+  <div class="modal fade"  tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><img src="./assets/leave_note_image.png" alt="leave_note_image"/>Leave a note</h5>
+        </div>
+        <div class="modal-body">
+            <p><img src="./assets/profile.png"/><span>Nina Nino</span>'s output and note</p>
+            <a href=""><img src="./assets/file.png"/> database design 10-29-2020.png <img src="./assets/download.png"/></a>
+            <div id="student_note">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos at facilis voluptatum dignissimos. 
+                Aliquid natus quia cum recusandae odit itaque repellendus consequuntur ex, ad dolores autem inventore neque culpa accusantium!
+            </div>
+            
+            <p id="number_of_words">Your note <span>0/500</span></p>
+            <form id="add_note_form" method="POST">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Type your note for the student here..."></textarea>
+                <button type="button" class="btn close_modal" data-dismiss="modal">Close</button>
+                <button type="button" class="btn submit_note">Submit</button>
+            </form>
+
+            <!-- list of notes -->
+            <div id="list_of_notes">
+                <div class="note">
+                    <p><img src="./assets/profile.png"/><span>Nina Nino</span>'s note <span class="note_time">1 minute ago</span></p>
+                    <div id="note_body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos at facilis voluptatum dignissimos. 
+                        Aliquid natus quia cum recusandae odit itaque repellendus consequuntur ex, ad dolores autem inventore neque culpa accusantium!
+                    </div>
+                    <button type="button">Reply</button>
+                </div>
+                <div class="note">
+                    <p><img src="./assets/profile.png"/><span>Nina Nino</span>'s note <span class="note_time">1 minute ago</span></p>
+                    <div id="note_body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos at facilis voluptatum dignissimos. 
+                        Aliquid natus quia cum recusandae odit itaque repellendus consequuntur ex, ad dolores autem inventore neque culpa accusantium!
+                    </div>
+                    <button type="button">Reply</button>
+                </div>
+                <div class="note">
+                    <p><img src="./assets/profile.png"/><span>Nina Nino</span>'s note <span class="note_time">1 minute ago</span></p>
+                    <div id="note_body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos at facilis voluptatum dignissimos. 
+                        Aliquid natus quia cum recusandae odit itaque repellendus consequuntur ex, ad dolores autem inventore neque culpa accusantium!
+                    </div>
+                    <button type="button">Reply</button>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
