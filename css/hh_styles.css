@@ -678,7 +678,6 @@ main #main_display #courses_list .course h5 img {
 }
 
 main #main_display #courses_list .course table {
-  color: #34C65C;
   width: 100%;
 }
 
@@ -691,8 +690,17 @@ main #main_display #courses_list .course table tbody tr:nth-child(even) {
   background: rgba(3, 3, 3, 0.5);
 }
 
+main #main_display #courses_list .course table tbody tr.active, main #main_display #courses_list .course table tbody tr:hover {
+  background: rgba(52, 198, 92, 0.2);
+}
+
+main #main_display #courses_list .course table tbody tr.active td:first-child, main #main_display #courses_list .course table tbody tr:hover td:first-child {
+  color: #fff;
+}
+
 main #main_display #courses_list .course table tbody tr td {
   border-right: 1px solid #979797;
+  color: #979797;
   font-weight: normal;
   min-width: 180px;
   text-align: center;
@@ -705,7 +713,7 @@ main #main_display #courses_list .course table tbody tr td:first-child {
   border-left: none;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: #979797;
+  color: #34C65C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
