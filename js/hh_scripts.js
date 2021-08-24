@@ -183,7 +183,7 @@ function addedCourseTemplate(courses){
                    /*  HACK: Temporary solution for generating wheather student has an output or none*/
                    let has_output = Math.floor(Math.random() * 2);
                    
-                   html_template += `           <td>${(has_output === 0) ? "--" : "5/28/21"}</td>`;
+                   html_template += `           <td data-toggle="modal" data-target=".modal">${(has_output === 0) ? "--" : "5/28/21"}</td>`;
                }
                 
                html_template += `           </tr>`;
