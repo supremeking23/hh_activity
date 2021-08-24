@@ -24,12 +24,12 @@ nav {
        
     }
 
-    #left_section,#right_section {
+    #navigation_link_section,#account_section {
         display: flex;
         align-items: center;
     }
 
-    #left_section {
+    #navigation_link_section {
         ul {
             li {
                 &:nth-child(1){
@@ -62,7 +62,7 @@ nav {
         }
     }
 
-    #right_section {
+    #account_section {
         ul {
             li {
                 &:nth-child(2) {

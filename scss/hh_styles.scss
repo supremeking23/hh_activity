@@ -101,7 +101,6 @@ main {
         overflow: auto;
         position: relative;
         
-
         &::-webkit-scrollbar {
             height: 3px;
             width: 2px;
@@ -258,11 +257,6 @@ main {
                             margin: 0px 0px 0px 28px;
                         }
 
-                        // &:hover {
-                        //     input ~ span {
-                        //         background: #ccc;
-                        //     }
-                        // }
                     }
                 }
             }
@@ -330,8 +324,7 @@ main {
        }
 
        #courses_list {
-           .course {
-              
+           .course {              
                h5 {
                   color: #009EFF; 
                   font: 16px/19.2px $lato_font;
@@ -341,44 +334,47 @@ main {
                   }
                }
 
-            //    h5, img {
-            //        display: inline-block;
-            //        vertical-align: middle;
-            //    }
-
                table {
-                color: $green_primary;
-                width: 100%;
-               
-                    tbody {
+                   width: 100%;
                    
-                        tr {
-                        height: 40px;
-                        background: #030303;
+                   tbody {
+                       tr {
+                            height: 40px;
+                            background: #030303;
                        
-                        &:nth-child(even){
-                           background: rgba(3, 3, 3, 0.5);
-                        }
-                        
-                        td{
-                            border-right: 1px solid #979797;
-                            font-weight: normal;
-                            min-width: 180px;
-                            text-align: center;
-
-                            &:first-child{
-                                align-items: center;
-                                border-left: none;
-                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                                color: $gray_primary;
-                                display: flex;
-                                height: 40px;
-                                margin: 0;
-                                min-width: 230px;
-                                padding: 0px 0px 0px 40px;
-                                text-align: left;
+                            &:nth-child(even){
+                                background: rgba(3, 3, 3, 0.5);
                             }
-                        }
+
+                            &.active, &:hover {
+                                background: rgba(52, 198, 92,0.2);
+                                td {
+                                    &:first-child {
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        
+                            td{
+                                border-right: 1px solid #979797;
+                                color: $gray_primary;
+                                font-weight: normal;
+                                min-width: 180px;
+                                text-align: center;
+
+                                &:first-child{
+                                    align-items: center;
+                                    border-left: none;
+                                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                                    color: $green_primary;
+                                    display: flex;
+                                    height: 40px;
+                                    margin: 0;
+                                    min-width: 230px;
+                                    padding: 0px 0px 0px 40px;
+                                    text-align: left;
+                                }
+                            }
                         }
                     }
                }
@@ -397,9 +393,6 @@ main {
 
 
 }
-
-
-
 
 .checkbox_style{
     background: #fff;
