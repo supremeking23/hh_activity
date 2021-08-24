@@ -122,7 +122,10 @@ function submitCourseForm(){
     
     save_course_form.trigger("reset").toggleClass("show");;    
     
+    /* load all courses from the database and display it to the DOM */
     loadAddedCoursesToDOM();
+
+    /* load all courses from the database and display it to the DOM */
     loadAllCoursesToDOM();
     
     snackbar.addClass("show");
@@ -148,35 +151,43 @@ function loadAddedCoursesToDOM(){
 
 /**
 * DOCU: This function is used to append all course to #courses_list and load it to the DOM <br>
-* Triggered: $(document).ready(function(){}); <br>
+* Triggered: loadAddedCoursesToDOM() <br>
 * Last Updated Date: August 24, 2021
 * @param {array} courses_data Requires: courses_data array 
 * @function
+* @return {html_template} 
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
 function addedCourseTemplate(courses){
     let html_template = ``;
     
-    for(let course_index = 0; course_index < courses.length; course_index++){ // add comment (add index as suffix name ex: course_index)
+    /* will loop thru all courses */
+    for(let course_index = 0; course_index < courses.length; course_index++){ 
     
-        if(courses[course_index].is_selected){ // add comment dito
+        /* will check if a specific course is selected; if true it will add it to the hmtl_template variable  */
+        if(courses[course_index].is_selected){ 
            html_template += `<li class="course">`;
            html_template += `   <h5><img src="./assets/draggable_icon.png" alt="draggable_icon"/> ${courses[course_index].course_title}</h5>`;
            html_template += `   <table>`;
            html_template += `       <tbody>`;
 
-           for(let assignment_index = 0; assignment_index < courses[course_index].assignments.length; assignment_index++) { // add comment dito
+            /* will loop through all assignments on a specific course*/
+           for(let assignment_index = 0; assignment_index < courses[course_index].assignments.length; assignment_index++){ // add comment dito
                html_template += `           <tr>`;
                html_template += `               <td>${courses[course_index].assignments[assignment_index]}</td>`;
                 
-               for(let student_id = 0; student_id < students_data.length; student_id++) { //add comment dito
+               /* will loop thru all students; in every single assigments, it will produce n number of students */
+               for(let student_id = 0; student_id < students_data.length; student_id++){
+
+                   /*  HACK: Temporary solution for generating wheather student has an output or none*/
                    let has_output = Math.floor(Math.random() * 2);
-                   html_template += `            <td>${(has_output === 0) ? "--" : "5/28/21"}</td>`;
-                }
+                   
+                   html_template += `           <td>${(has_output === 0) ? "--" : "5/28/21"}</td>`;
+               }
                 
                html_template += `           </tr>`;
-            }
+           }
 
             html_template += `         </tbody>`;
             html_template += `   </table>`;
@@ -218,9 +229,9 @@ async function loadGlobalStudents(){
     try{
         let html_template = `<th>Assignments</th>`;
         
-        for(let student = 0; student < students_data.length; student++){
-            html_template += `<th class="tooltip_utility">${students_data[student].last_name}, ${students_data[student].first_name[0]}... 
-                <span class="tooltip_utility_text"><img src="${await getCountry(students_data[student].country)}" /> ${students_data[student].last_name}, ${students_data[student].first_name}</span>
+        for(let student_index = 0; student_index < students_data.length; student_index++){
+            html_template += `<th class="tooltip_utility">${students_data[student_index].last_name}, ${students_data[student_index].first_name[0]}... 
+                <span class="tooltip_utility_text"><img src="${await getCountry(students_data[student_index].country)}" /> ${students_data[student_index].last_name}, ${students_data[student_index].first_name}</span>
             </th>`;
         }
         $("#student_row").html(html_template);
