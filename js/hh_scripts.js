@@ -16,7 +16,6 @@ $(document).ready(function(){
             .on("submit", "#course_form", submitCourseForm) //change name
             .on("click", ".courses", checkCourseAction)                                         /* this function is responsible for  checking and unchecking the the course's checkbox */
             .on('click','td', addCommentToStudentAssignment);                                   /* this function is responsible for showing up a modal where user can write comment to students assigment */
-    
 });
 
 /**
@@ -30,9 +29,10 @@ $(document).ready(function(){
 */
 function addCommentToStudentAssignment(){ 
     let output_table_data = $(this);
-    output_table_data.closest("tr").siblings().removeClass("active");                           /* remove the class active to the previously selected or hovered table row */
-    output_table_data.closest("li").siblings().find("tr").removeClass("active");                /* remove the class active to the previously selected or hovered table row on different course group */
-    output_table_data.closest("tr").addClass("active");                                         /* add the class active to the current selected or hovered table row */
+
+    output_table_data.closest("tr").siblings().removeClass("active");                           
+    output_table_data.closest("li").siblings().find("tr").removeClass("active");                
+    output_table_data.closest("tr").addClass("active");                                         
     
 }
 
@@ -57,8 +57,11 @@ function showAllCourses(){
 * @author Ivan Christian Jay
 */
 function checkCourseAction(){
+    // comment
     for(let course_index = 0; course_index < courses_data.length; course_index++){
-        if(courses_data[course_index].id == $(this).val()) courses_data[course_index].is_selected = !courses_data[course_index].is_selected;   
+        let course_data = courses_data[course_index];
+        // comment
+        if(course_data.id == $(this).val()) course_data.is_selected = !course_data.is_selected; 
     }
 }
 
@@ -101,13 +104,15 @@ function submitCourseForm(){
     let btn_add_course_submit = save_course_form.find("#btn_add_course_submit");
     let btn_add_course = $("#btn_add_course");
     let courses_added = courses_data.filter((course) => course.is_selected);
+
+    snackbar.find("span").text("Courses and assignments successfully " + ((btn_add_course_submit.text() === "Update") ? "updated." : "added."));
     
-    if(btn_add_course_submit.text() === "Update"){
-        snackbar.find("span").text("Courses and assignments successfully updated.");
-    }
-    else{
-        snackbar.find("span").text("Courses and assignments successfully added.");
-    }
+    // if(btn_add_course_submit.text() === "Update"){
+    //     snackbar.find("span").text("Courses and assignments successfully updated.");
+    // }
+    // else{
+    //     snackbar.find("span").text("Courses and assignments successfully added.");
+    // }
 
     if(courses_added.length > 0) {
         btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> Edit Course`);
@@ -120,7 +125,7 @@ function submitCourseForm(){
 
     $("#add_course_image").hide();
     
-    save_course_form.trigger("reset").toggleClass("show");;    
+    save_course_form.trigger("reset").toggleClass("show");    
     
     /* load all courses from the database and display it to the DOM */
     loadAddedCoursesToDOM();
