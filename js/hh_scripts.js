@@ -23,7 +23,18 @@ $(document).ready(function(){
             .on("click", ".courses", checkHHCourseAction)                                           /* this function is responsible for  checking and unchecking the the course's checkbox */
             .on("click",'.students_assignment_cell', showModalInStudentCell)                        /* this function is responsible for showing up a modal where user can write comment to students assigment */
             .on("submit", "#add_assigment_note_form", submitAddAssignmentNoteForm)                  /* this function is responsible for adding new note for a student assignment */
-            .on('hidden.bs.modal',"#add_assignment_note_modal", hideAssignmentNoteModal);           /* this function is responsible for closing the add_assignment_note_modal */
+            .on("hidden.bs.modal","#add_assignment_note_modal", hideAssignmentNoteModal)           /* this function is responsible for closing the add_assignment_note_modal */
+            .on("keyup", "#add_assigment_note_form textarea", function(e){
+               let add_assignment_note_textarea = $(this);
+               $("#number_of_words span").text(`${add_assignment_note_textarea.val().length}/500`);
+
+               if(add_assignment_note_textarea.val().length > 500){
+                   add_assignment_note_textarea.addClass("error");
+               }
+               else{
+                   add_assignment_note_textarea.removeClass("error");
+               }
+            });
 });
 
 
@@ -36,7 +47,10 @@ $(document).ready(function(){
 * @author Ivan Christian Jay
 */
 function hideAssignmentNoteModal(){
-    $("#add_assignment_note_modal").find("form").trigger("reset");
+    let add_assignment_note_modal = $("#add_assignment_note_modal");
+    dd_assignment_note_modal.find("textarea").removeClass("error");
+    add_assignment_note_modal.find("form").trigger("reset");
+    a
 }
 
 /**
