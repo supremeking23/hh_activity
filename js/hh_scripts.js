@@ -6,9 +6,8 @@ import notes_data from "./notes_data.js";
 const default_user = {
     "account_type": "admin",
     "account_id": 111,
-    "first_name": "Ivan Christian Jay",
-    "last_name": "Funcion"
-}
+    "sender": "Ivan Christian Jay",
+};
 
 $(document).ready(function(){
     loadAddedHHCoursesToDOM();                                                                      /* load courses that is selected by the user to the DOM */
@@ -22,23 +21,56 @@ $(document).ready(function(){
             .on("click","#btn_add_course, #btn_cancel_add_course", loadHHCourses)                   /* this function is responsible for showing and hiding the course form */
             .on("submit", "#course_form", submitHHCourseForm)                                       /* this function is responsible for adding/updating courses */
             .on("click", ".courses", checkHHCourseAction)                                           /* this function is responsible for  checking and unchecking the the course's checkbox */
-            .on("click",'.students_assignment_cell', showModalInStudentCell)                       /* this function is responsible for showing up a modal where user can write comment to students assigment */
-            .on("submit", "#add_note_form", function() {
+            .on("click",'.students_assignment_cell', showModalInStudentCell)                        /* this function is responsible for showing up a modal where user can write comment to students assigment */
+            .on("submit", "#add_assigment_note_form", submitAddAssignmentNoteForm)                  /* this function is responsible for adding new note for a student assignment */
+            .on('hidden.bs.modal',"#add_assignment_note_modal", hideAssignmentNoteModal);           /* this function is responsible for closing the add_assignment_note_modal */
+});
 
-                console.log($("textarea").val());
 
-                // push note to note_data
-                //character limiter
+/**
+* DOCU: This function is used to close and reset form in add_assignment_note_modal <br>
+* Triggered: .on('hidden.bs.modal',"#add_assignment_note_modal", hideAssignmentNoteModal) <br>
+* Last Updated Date: August 25, 2021
+* @function
+* @memberOf Hacker Hero SpreadSheet Activity
+* @author Ivan Christian Jay
+*/
+function hideAssignmentNoteModal(){
+    $("#add_assignment_note_modal").find("form").trigger("reset");
+}
 
-                $(this).trigger("reset");
-                $("#add_comment_modal").modal("hide");
-                
-                return false;
-            })
-            .on('hidden.bs.modal',"#add_comment_modal",function(){
-                $("#add_comment_modal").find("form").trigger("reset");
-            });  
+/**
+* DOCU: This function is used to submit note written by a user for student assignment. <br>
+* Triggered: .on("submit", "#add_assigment_note_form", submitAddAssignmentNoteForm) <br>
+* Last Updated Date: August 25, 2021
+* @function
+* @memberOf Hacker Hero SpreadSheet Activity
+* @author Ivan Christian Jay
+*/
+function submitAddAssignmentNoteForm() {
+    let snackbar =  $("#snackbar");
+    const find_note = notes_data.filter((note) => note.id === parseInt($("#note_id").val())); 
+    const {replies} = find_note[0];
+
+    replies.unshift({
+        ...default_user,
+        "reply_body": $("textarea").val(),
     });
+
+    let list_of_replies = replyNoteHTMLTemplate(replies);
+
+    snackbar.find("span").text("Note successfully added.");
+    snackbar.addClass("show");
+    /* remove the class show from snackbar after 3 seconds */
+    setTimeout(() => { 
+        snackbar.removeClass("show"); 
+    }, 3000);
+    
+    $(this).trigger("reset");
+    // $("#add_assignment_note_modal").modal("hide");
+    $("#list_of_notes").html(list_of_replies);
+    return false;
+}
 
 /**
 * DOCU: This function is used to show a modal where user can write a comment to a students assignment. <br>
@@ -56,14 +88,13 @@ function showModalInStudentCell(){
     output_table_data.closest("li").siblings().find("tr").removeClass("active");                
     output_table_data.closest("tr").addClass("active");  
     
-    
-    //addCommentToStudentAssignment -- action
-
-    // when modal is open , populate data base on student_id data attribute
+    /* use to find student that matches the value of student_id data attribute */
     const find_student = students_data.filter((student) => student.id === parseInt(output_table_data.data("student_id")));
+     /* object destructing of the find_student[0]*/
     const {first_name, last_name } = find_student[0];
 
-    const find_notes = notes_data.filter((note) => {
+    /* use to find notes that matches the value of student_id,course_id and assignment_id data attribute */
+    const find_note = notes_data.filter((note) => {
         if(note.account_id === parseInt(output_table_data.data("student_id")) &&  
           note.course_id === parseInt(output_table_data.data("course_id")) && 
           note.assignment_id === parseInt(output_table_data.data("assignment_id"))){
@@ -71,20 +102,23 @@ function showModalInStudentCell(){
         }
     });
 
-    let add_comment_modal = $("#add_comment_modal");
-    const {file_name, note_body, replies} = find_notes[0];  
+    /* object destructing of the find_note[0] */
+    const {file_name, note_body, replies, id} = find_note[0]; 
+    let add_assignment_note_modal = $("#add_assignment_note_modal");
+
     /* assign what is being returned form replyNoteHTMLTemplate(replies) to variable list_of_replies */
     let list_of_replies = replyNoteHTMLTemplate(replies);
     
     $("#list_of_notes").html(list_of_replies);
-    add_comment_modal.find("#student_name").text(`${first_name} ${last_name}`);
-    add_comment_modal.find("a").attr("href","javascript:void(0)").html(`<img src="./assets/file.png"/> ${file_name} <img src="./assets/download.png"/>`);
-    add_comment_modal.find("#student_note").text(`${note_body}`); 
+    add_assignment_note_modal.find("#student_name").text(`${first_name} ${last_name}`);
+    add_assignment_note_modal.find("a").attr("href","javascript:void(0)").html(`<img src="./assets/file.png"/> ${file_name} <img src="./assets/download.png"/>`);
+    add_assignment_note_modal.find("#student_note").text(`${note_body}`); 
+    add_assignment_note_modal.find("#note_id").val(`${id}`); 
 }
 
 /**
 * DOCU: This function is used to generating reply notes. <br>
-* Triggered: showModalInStudentCell() <br>
+* Triggered: showModalInStudentCell(), submitAddAssignmentNoteForm() <br>
 * Last Updated Date: August 25, 2021
 * @param {array} replies Requires: replies array 
 * @function
