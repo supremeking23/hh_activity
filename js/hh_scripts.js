@@ -1,5 +1,6 @@
 import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
+import notes_data from "./notes_data.js";
 
 $(document).ready(function(){
     loadAddedHHCoursesToDOM();                                                                      /* load courses that is selected by the user to the DOM */
