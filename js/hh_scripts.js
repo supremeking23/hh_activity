@@ -10,33 +10,39 @@ const default_user = {
 };
 
 $(document).ready(function(){
-    loadAddedHHCoursesToDOM();                                                                      /* load courses that is selected by the user to the DOM */
-    loadAllHHCoursesToDOM();                                                                        /* load all courses from the database and display it to the DOM */
-    loadHHStudents();                                                                               /* load all students to the DOM */
+    loadAddedHHCoursesToDOM();                                                                                  /* load courses that is selected by the user to the DOM */
+    loadAllHHCoursesToDOM();                                                                                    /* load all courses from the database and display it to the DOM */
+    loadHHStudents();                                                                                           /* load all students to the DOM */
     
-    $("#accordion").accordion({ collapsible: true, active: 3 });                                    /* accordion behaviour, use in aside element */
-    $("#courses_list").sortable();                                                                  /* Sortable  behaviour, use in sorting course group*/
+    $("#accordion").accordion({ collapsible: true, active: 3 });                                                /* accordion behaviour, use in aside element */
+    $("#courses_list").sortable();                                                                              /* Sortable  behaviour, use in sorting course group*/
 
     $("body")
-            .on("click","#btn_add_course, #btn_cancel_add_course", loadHHCourses)                   /* this function is responsible for showing and hiding the course form */
-            .on("submit", "#course_form", submitHHCourseForm)                                       /* this function is responsible for adding/updating courses */
-            .on("click", ".courses", checkHHCourseAction)                                           /* this function is responsible for  checking and unchecking the the course's checkbox */
-            .on("click",'.students_assignment_cell', showModalInStudentCell)                        /* this function is responsible for showing up a modal where user can write comment to students assigment */
-            .on("submit", "#add_assigment_note_form", submitAddAssignmentNoteForm)                  /* this function is responsible for adding new note for a student assignment */
-            .on("hidden.bs.modal","#add_assignment_note_modal", hideAssignmentNoteModal)           /* this function is responsible for closing the add_assignment_note_modal */
-            .on("keyup", "#add_assigment_note_form textarea", function(e){
-               let add_assignment_note_textarea = $(this);
-               $("#number_of_words span").text(`${add_assignment_note_textarea.val().length}/500`);
-
-               if(add_assignment_note_textarea.val().length > 500){
-                   add_assignment_note_textarea.addClass("error");
-               }
-               else{
-                   add_assignment_note_textarea.removeClass("error");
-               }
-            });
+            .on("click","#btn_add_course, #btn_cancel_add_course", loadHHCourses)                               /* this function is responsible for showing and hiding the course form */
+            .on("submit", "#course_form", submitHHCourseForm)                                                   /* this function is responsible for adding/updating courses */
+            .on("click", ".courses", checkHHCourseAction)                                                       /* this function is responsible for  checking and unchecking the the course's checkbox */
+            .on("click",'.students_assignment_cell', showModalInStudentCell)                                    /* this function is responsible for showing up a modal where user can write comment to students assigment */
+            .on("submit", "#add_assigment_note_form", submitAddAssignmentNoteForm)                              /* this function is responsible for adding new note for a student assignment */
+            .on("hidden.bs.modal","#add_assignment_note_modal", hideAssignmentNoteModal)                        /* this function is responsible for closing the add_assignment_note_modal */
+            .on("keyup", "#add_assigment_note_form textarea", countCharactersInAssignmentNoteFormTextarea);     /* this function is responsible for checking whether the user exeeds the maximum length of characters in add_assigment_note_form textarea */
 });
 
+
+/**
+* DOCU: This function is used to display count of characters in add_assigment_note_form textarea. <br>
+* This function also display the total count of characters as well as if the character length exceeds the maximum number of required length <br>
+* Triggered: .on("keyup", "#add_assigment_note_form textarea", countCharactersInAssignmentNoteFormTextarea) <br>
+* Last Updated Date: August 25, 2021
+* @function
+* @memberOf Hacker Hero SpreadSheet Activity
+* @author Ivan Christian Jay
+*/
+function countCharactersInAssignmentNoteFormTextarea(){
+    let add_assignment_note_textarea = $(this);
+    
+    $("#number_of_words span").text(`${add_assignment_note_textarea.val().length}/500`);
+    (add_assignment_note_textarea.val().length > 500) ? add_assignment_note_textarea.addClass("error") : add_assignment_note_textarea.removeClass("error");
+ }
 
 /**
 * DOCU: This function is used to close and reset form in add_assignment_note_modal <br>
@@ -50,7 +56,7 @@ function hideAssignmentNoteModal(){
     let add_assignment_note_modal = $("#add_assignment_note_modal");
     dd_assignment_note_modal.find("textarea").removeClass("error");
     add_assignment_note_modal.find("form").trigger("reset");
-    a
+    
 }
 
 /**
@@ -62,13 +68,21 @@ function hideAssignmentNoteModal(){
 * @author Ivan Christian Jay
 */
 function submitAddAssignmentNoteForm() {
+    let add_assignment_note_textarea = $(this).find("textarea");
+   
+    /* if the length of add_assignment_note_textarea is greater than 500 or less than or equal to 0, add error class in text area otherwise skip this function  */
+    if(add_assignment_note_textarea.val().length > 500 || add_assignment_note_textarea.val().length <= 0) {
+        add_assignment_note_textarea.addClass("error");
+        return false; 
+    }
+
     let snackbar =  $("#snackbar");
     const find_note = notes_data.filter((note) => note.id === parseInt($("#note_id").val())); 
     const {replies} = find_note[0];
 
     replies.unshift({
         ...default_user,
-        "reply_body": $("textarea").val(),
+        "reply_body": add_assignment_note_textarea.val(),
     });
 
     let list_of_replies = replyNoteHTMLTemplate(replies);
@@ -97,7 +111,7 @@ function submitAddAssignmentNoteForm() {
 */
 function showModalInStudentCell(){ 
     let output_table_data = $(this);
-    console.log(output_table_data.data("student_id"));
+
     output_table_data.closest("tr").siblings().removeClass("active");                           
     output_table_data.closest("li").siblings().find("tr").removeClass("active");                
     output_table_data.closest("tr").addClass("active");  
