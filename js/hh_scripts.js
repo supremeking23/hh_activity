@@ -2,6 +2,14 @@ import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
 import notes_data from "./notes_data.js";
 
+/* Hack */
+const default_user = {
+    "account_type": "admin",
+    "account_id": 111,
+    "first_name": "Ivan Christian Jay",
+    "last_name": "Funcion"
+}
+
 $(document).ready(function(){
     loadAddedHHCoursesToDOM();                                                                      /* load courses that is selected by the user to the DOM */
     loadAllHHCoursesToDOM();                                                                        /* load all courses from the database and display it to the DOM */
@@ -11,11 +19,26 @@ $(document).ready(function(){
     $("#courses_list").sortable();                                                                  /* Sortable  behaviour, use in sorting course group*/
 
     $("body")
-            .on('click',"#btn_add_course, #btn_cancel_add_course", loadHHCourses)                   /* this function is responsible for showing and hiding the course form */
+            .on("click","#btn_add_course, #btn_cancel_add_course", loadHHCourses)                   /* this function is responsible for showing and hiding the course form */
             .on("submit", "#course_form", submitHHCourseForm)                                       /* this function is responsible for adding/updating courses */
             .on("click", ".courses", checkHHCourseAction)                                           /* this function is responsible for  checking and unchecking the the course's checkbox */
-            .on('click','.students_assignment_cell', showModalInStudentCell);                       /* this function is responsible for showing up a modal where user can write comment to students assigment */
-});
+            .on("click",'.students_assignment_cell', showModalInStudentCell)                       /* this function is responsible for showing up a modal where user can write comment to students assigment */
+            .on("submit", "#add_note_form", function() {
+
+                console.log($("textarea").val());
+
+                // push note to note_data
+                //character limiter
+
+                $(this).trigger("reset");
+                $("#add_comment_modal").modal("hide");
+                
+                return false;
+            })
+            .on('hidden.bs.modal',"#add_comment_modal",function(){
+                $("#add_comment_modal").find("form").trigger("reset");
+            });  
+    });
 
 /**
 * DOCU: This function is used to show a modal where user can write a comment to a students assignment. <br>
@@ -44,29 +67,43 @@ function showModalInStudentCell(){
         if(note.account_id === parseInt(output_table_data.data("student_id")) &&  
           note.course_id === parseInt(output_table_data.data("course_id")) && 
           note.assignment_id === parseInt(output_table_data.data("assignment_id"))){
-            
             return note;
         }
     });
 
-    const{file_name, note_body, replies} = find_notes[0];
-      
     let add_comment_modal = $("#add_comment_modal");
+    const {file_name, note_body, replies} = find_notes[0];  
+    /* assign what is being returned form replyNoteHTMLTemplate(replies) to variable list_of_replies */
+    let list_of_replies = replyNoteHTMLTemplate(replies);
+    
+    $("#list_of_notes").html(list_of_replies);
     add_comment_modal.find("#student_name").text(`${first_name} ${last_name}`);
     add_comment_modal.find("a").attr("href","javascript:void(0)").html(`<img src="./assets/file.png"/> ${file_name} <img src="./assets/download.png"/>`);
-    add_comment_modal.find("#student_note").text(`${note_body}`);
+    add_comment_modal.find("#student_note").text(`${note_body}`); 
+}
 
+/**
+* DOCU: This function is used to generating reply notes. <br>
+* Triggered: showModalInStudentCell() <br>
+* Last Updated Date: August 25, 2021
+* @param {array} replies Requires: replies array 
+* @function
+* @return {reply_template} 
+* @memberOf Hacker Hero SpreadSheet Activity
+* @author Ivan Christian Jay
+*/
+function replyNoteHTMLTemplate(replies){
+    let reply_template = ``;
 
-    let note_template = ``;
     for(let reply of replies) {
-        note_template += `<div class="note">`;
-        note_template += `  <p><img src="./assets/profile.png"/><span>${reply.sender}</span>'s note <span class="note_time">1 minute ago</span></p> `;
-        note_template += `  <div id="note_body"> ${reply.reply_body} </div>`;
-        note_template += `  <button type="button">Reply</button>`;     
-        note_template += `</div>`;    
+        reply_template += `<div class="note">`;
+        reply_template += `  <p><img src="./assets/profile.png"/><span>${reply.sender}</span>'s note <span class="note_time">1 minute ago</span></p> `;
+        reply_template += `  <div id="note_body"> ${reply.reply_body} </div>`;
+        reply_template += `  <button type="button">Reply</button>`;     
+        reply_template += `</div>`;    
     }
-    
-    $("#list_of_notes").html(note_template);
+
+    return reply_template;
 }
 
 /**
