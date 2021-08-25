@@ -15,6 +15,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 nav .brand {
@@ -960,6 +961,45 @@ main #main_display #add_course_image {
 
 #checkbox_agreement:checked ~ .checkbox_style i {
   color: #fff;
+  display: block;
+}
+
+#reply_note_form {
+  display: none;
+  margin: 10px auto 0px;
+  width: 280px;
+}
+
+#reply_note_form input {
+  background: #0E0E10;
+  height: 30px;
+  width: 100%;
+  border: none;
+  color: #979797;
+  font: 14px/16px "Lato", sans-serif;
+}
+
+#reply_note_form input::-webkit-input-placeholder {
+  font: 14px/16px "Lato", sans-serif;
+}
+
+#reply_note_form input:-ms-input-placeholder {
+  font: 14px/16px "Lato", sans-serif;
+}
+
+#reply_note_form input::-ms-input-placeholder {
+  font: 14px/16px "Lato", sans-serif;
+}
+
+#reply_note_form input::placeholder {
+  font: 14px/16px "Lato", sans-serif;
+}
+
+#reply_note_form input:focus-visible {
+  outline: none;
+}
+
+#reply_note_form.show {
   display: block;
 }
 /*# sourceMappingURL=hh_styles.css.map */
