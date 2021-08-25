@@ -40,8 +40,33 @@ function showModalInStudentCell(){
     const find_student = students_data.filter((student) => student.id === parseInt(output_table_data.data("student_id")));
     const {first_name, last_name } = find_student[0];
 
+    const find_notes = notes_data.filter((note) => {
+        if(note.account_id === parseInt(output_table_data.data("student_id")) &&  
+          note.course_id === parseInt(output_table_data.data("course_id")) && 
+          note.assignment_id === parseInt(output_table_data.data("assignment_id"))){
+            
+            return note;
+        }
+    });
+
+    const{file_name, note_body, replies} = find_notes[0];
+      
     let add_comment_modal = $("#add_comment_modal");
     add_comment_modal.find("#student_name").text(`${first_name} ${last_name}`);
+    add_comment_modal.find("a").attr("href","javascript:void(0)").html(`<img src="./assets/file.png"/> ${file_name} <img src="./assets/download.png"/>`);
+    add_comment_modal.find("#student_note").text(`${note_body}`);
+
+
+    let note_template = ``;
+    for(let reply of replies) {
+        note_template += `<div class="note">`;
+        note_template += `  <p><img src="./assets/profile.png"/><span>${reply.sender}</span>'s note <span class="note_time">1 minute ago</span></p> `;
+        note_template += `  <div id="note_body"> ${reply.reply_body} </div>`;
+        note_template += `  <button type="button">Reply</button>`;     
+        note_template += `</div>`;    
+    }
+    
+    $("#list_of_notes").html(note_template);
 }
 
 /**
@@ -181,7 +206,12 @@ function addedCourseTemplate(courses){
                    /*  HACK: Temporary solution for generating wheather student has an output or none*/
                    let has_output = Math.floor(Math.random() * 2);
                    
-                   html_template += `           <td class="students_assignment_cell" data-student_id="${students_data[student_index].id}" data-toggle="modal" data-target=".modal">${(has_output === 0) ? "--" : "5/28/21"}</td>`;
+                   html_template += `           <td class="students_assignment_cell" data-student_id="${students_data[student_index].id}" 
+                                                    data-course_id="${courses[course_index].id}"  
+                                                    data-assignment_id="${courses[course_index].assignments[assignment_index].id}"  
+                                                    data-toggle="modal" data-target=".modal">
+                                                    ${(has_output === 0) ? "--" : "5/28/21"}
+                                                </td>`;
                }
                 
                html_template += `           </tr>`;
