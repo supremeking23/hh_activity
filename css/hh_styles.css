@@ -387,9 +387,7 @@ nav #account_section ul li a i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  position: relative;
 }
 
 .modal-content .modal-body a:hover {
@@ -397,8 +395,14 @@ nav #account_section ul li a i {
   color: #009EFF;
 }
 
+.modal-content .modal-body a img:first-child {
+  margin: 0px 5px 0px 0px;
+}
+
 .modal-content .modal-body a img:last-child {
   margin: 0px 0px 0px 36px;
+  position: absolute;
+  right: 0;
 }
 
 .modal-content .modal-body #list_of_notes {

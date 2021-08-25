@@ -32,18 +32,19 @@ export default [{
     "id": 2,
     "account_type": null,
     "account_id": 2,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt",
     "file_name": "UltricesLiberoNon.avi",
     "replies": [
-      {
-      },
-      {
-      }
+     
     ]
   }, {
     "id": 3,
     "account_type": null,
     "account_id": 3,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis",
     "file_name": "BlanditMi.mpeg",
     "replies": [
@@ -53,18 +54,28 @@ export default [{
     "id": 4,
     "account_type": null,
     "account_id": 4,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo",
     "file_name": "AeneanSitAmet.avi",
     "replies": [
-      {
-      },
-      {
-      }
+        {
+            "id": 1,
+            "reply_body": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla",
+            "sender": "Jane Doe"
+        },
+        {
+            "id": 2,
+            "reply_body": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla",
+            "sender": "Jonathan Doe"
+        },
     ]
   }, {
     "id": 5,
     "account_type": null,
     "account_id": 5,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula",
     "file_name": "TellusSemper.tiff",
     "replies": [
@@ -83,6 +94,8 @@ export default [{
     "id": 6,
     "account_type": null,
     "account_id": 6,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet",
     "file_name": "Lorem.mp3",
     "replies": [
@@ -101,6 +114,8 @@ export default [{
     "id": 7,
     "account_type": null,
     "account_id": 7,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus",
     "file_name": "Ridiculus.jpeg",
     "replies": [
@@ -111,6 +126,8 @@ export default [{
     "id": 8,
     "account_type": null,
     "account_id": 8,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim",
     "file_name": "AtVulputate.avi",
     "replies": [
@@ -125,6 +142,8 @@ export default [{
     "id": 9,
     "account_type": null,
     "account_id": 9,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue",
     "file_name": "Amet.tiff",
     "replies": [
@@ -134,6 +153,8 @@ export default [{
     "id": 10,
     "account_type": null,
     "account_id": 10,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus",
     "file_name": "Id.mp3",
     "replies": [
@@ -152,6 +173,8 @@ export default [{
     "id": 11,
     "account_type": null,
     "account_id": 11,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac",
     "file_name": "CubiliaCuraeMauris.mov",
     "replies": [
@@ -162,6 +185,8 @@ export default [{
     "id": 12,
     "account_type": null,
     "account_id": 12,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra",
     "file_name": "Sem.png",
     "replies": [
@@ -174,6 +199,8 @@ export default [{
     "id": 13,
     "account_type": null,
     "account_id": 13,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at",
     "file_name": "VestibulumAcEst.xls",
     "replies": [
@@ -190,6 +217,8 @@ export default [{
     "id": 14,
     "account_type": null,
     "account_id": 14,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin",
     "file_name": "DiamInMagna.xls",
     "replies": [
@@ -206,6 +235,8 @@ export default [{
     "id": 15,
     "account_type": null,
     "account_id": 15,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit",
     "file_name": "InFaucibus.txt",
     "replies": [
@@ -220,6 +251,8 @@ export default [{
     "id": 16,
     "account_type": null,
     "account_id": 16,
+    "course_id" : 1,
+    "assignment_id": 1,
     "note_body": "pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque",
     "file_name": "LuctusEtUltrices.avi",
     "replies": [
