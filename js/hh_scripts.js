@@ -172,7 +172,7 @@ function addedCourseTemplate(courses){
             /* will loop through all assignments on a specific course*/
            for(let assignment_index = 0; assignment_index < courses[course_index].assignments.length; assignment_index++){ // add comment dito
                html_template += `           <tr>`;
-               html_template += `               <td>${courses[course_index].assignments[assignment_index]}</td>`;
+               html_template += `               <td>${courses[course_index].assignments[assignment_index].assignment}</td>`;
                 
                /* will loop thru all students; in every single assigments, it will produce n number of students */
                for(let student_index = 0; student_index < students_data.length; student_index++){

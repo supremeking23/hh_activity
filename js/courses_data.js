@@ -3,67 +3,134 @@ export default [
         "id" : 1,
         "course_title" : "Learn to Code",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Algorithm I" }, 
+            { id: 2, assignment: "Algorithm II" },
+            { id: 3, assignment: "Algorithm III" }, 
+            { id: 4, assignment: "Algorithm IV" },
+            { id: 5, assignment: "Algorithm V" }, 
+            { id: 6, assignment: "Algorithm VI" },
+        ],
     },
     {
         "id" : 2,
         "course_title" : "Advanced Javascript (beta)",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Advanced Objects", "Higher Order Functions"]
+        "assignments" : [ 
+            { id: 1, assignment: "Objects I" }, 
+            { id: 2, assignment: "Objects II" },
+            { id: 3, assignment: "Objects III" }, 
+            { id: 4, assignment: "Algorithm IV" },
+            { id: 5, assignment: "Objects V - Prototype" }, 
+            { id: 6, assignment: "ES6" },
+            { id: 7, assignment: "Callbacks" },
+        ],
     },
     {
         "id" : 3,
         "course_title" : "Games in Javascript",
         "is_added" : false,
-        "assignments" : ["Pacman", "Super Mario"]
+        "assignments" : [ 
+            { id: 1, assignment: "Pacman" }, 
+            { id: 2, assignment: "Super Mario" },
+            { id: 3, assignment: "Snake" }, 
+            { id: 4, assignment: "Space Impact" },
+        ],
     },
     {
         "id" : 4,
         "course_title" : "Adv. Algorithm & Data Structures",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Adv. Algorithm I" }, 
+            { id: 2, assignment: "Adv. Algorithm II" },
+            { id: 3, assignment: "Adv. Algorithm III" }, 
+            { id: 4, assignment: "Adv. Algorithm IV" },
+            { id: 5, assignment: "Adv. Algorithm V" }, 
+            { id: 6, assignment: "Adv. Algorithm VI" },
+        ],
     },
     {
         "id" : 5,
         "course_title" : "Basic Algorithm",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Arrays" }, 
+            { id: 2, assignment: "Loops" },
+            { id: 3, assignment: "Conditionals" }, 
+            { id: 4, assignment: "Switch" },
+            { id: 5, assignment: "OOP" }, 
+        ],
     },
     {
         "id" : 6,
         "course_title" : "System Design (beta)",
         "is_added" : false,
-        "assignments" : ["Test I", "Test II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "HTTP request and response" }, 
+            { id: 2, assignment: "Scaling web servers" },
+            { id: 3, assignment: "System Architecture" }, 
+        ],
     },
     {
         "id" : 7,
         "course_title" : "Communication",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Core Value: I" }, 
+            { id: 2, assignment: "Core Value: II" },
+            { id: 3, assignment: "Core Value: III" }, 
+            { id: 4, assignment: "Core Value: IV" },
+            { id: 5, assignment: "Core Value: V" }, 
+            { id: 6, assignment: "Core Value: VI" },
+        ],
     },
     {
         "id" : 8,
         "course_title" : "How to create an effective course",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Avoid Tutorial based" }, 
+            { id: 2, assignment: "Concept base training" },
+            { id: 3, assignment: "Must to know" }, 
+            { id: 4, assignment: "20 minute rule" },
+        ],
     },
     {
         "id" : 9,
         "course_title" : "User Experience",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Element of UX" }, 
+            { id: 2, assignment: "Example of Good UX" },
+            { id: 3, assignment: "Min. the thought engery" }, 
+        ],
     },
     {
         "id" : 10,
         "course_title" : "Python",
         "is_added" : false,
-        "assignments" : ["Algorithm I", "Algorithm II", "Algorithm III", "Algorithm IV", "Algorithm V"]
+        "assignments" : [ 
+            { id: 1, assignment: "Core Building Blocks" }, 
+            { id: 2, assignment: "OOP I" },
+            { id: 3, assignment: "Data Structure" }, 
+            { id: 4, assignment: "OOP II" },
+            { id: 5, assignment: "Automation" }, 
+            { id: 6, assignment: "Python with Mysql" },
+        ],
     },
     {
         "id" : 11,
         "course_title" : "MEAN Stack",
         "is_added" : false,
-        "assignments" : ["MongoDB", "Mongoose", "MySQL", "Express", "Angular"]
+        "assignments" : [ 
+            { id: 1, assignment: "MongoDb" }, 
+            { id: 2, assignment: "Mysql" },
+            { id: 3, assignment: "Angular" }, 
+            { id: 4, assignment: "Express" },
+            { id: 5, assignment: "Node js" }, 
+            { id: 6, assignment: "API" },
+        ],
     },
     
 ];
