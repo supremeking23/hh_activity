@@ -2,66 +2,74 @@ import students_data from "./students_data.js";
 import courses_data from "./courses_data.js";
 
 $(document).ready(function(){
-    loadAddedCoursesToDOM();                                                                    /* load courses that is selected by the user to the DOM */
-    loadAllCoursesToDOM();                                                                      /* load all courses from the database and display it to the DOM */
-    loadGlobalStudents();                                                                       /* load all students to the DOM */
+    loadAddedHHCoursesToDOM();                                                                      /* load courses that is selected by the user to the DOM */
+    loadAllHHCoursesToDOM();                                                                        /* load all courses from the database and display it to the DOM */
+    loadHHStudents();                                                                               /* load all students to the DOM */
     
-    $("#accordion").accordion({ collapsible: true, active: 3 });                                /* accordion behaviour, use in aside element */
-    $("#courses_list").sortable();                                                              /* Sortable  behaviour, use in sorting course group*/
-
-    // $(".course").draggable({ connectToSortable: "#courses_list", revert: "invalid" });
+    $("#accordion").accordion({ collapsible: true, active: 3 });                                    /* accordion behaviour, use in aside element */
+    $("#courses_list").sortable();                                                                  /* Sortable  behaviour, use in sorting course group*/
 
     $("body")
-            .on('click',"#btn_add_course, #btn_cancel_add_course", showAllCourses)              /* this function is responsible for showing and hiding the course form */
-            .on("submit", "#course_form", submitCourseForm) //change name
-            .on("click", ".courses", checkCourseAction)                                         /* this function is responsible for  checking and unchecking the the course's checkbox */
-            .on('click','td', addCommentToStudentAssignment);                                   /* this function is responsible for showing up a modal where user can write comment to students assigment */
+            .on('click',"#btn_add_course, #btn_cancel_add_course", loadHHCourses)                   /* this function is responsible for showing and hiding the course form */
+            .on("submit", "#course_form", submitHHCourseForm)                                       /* this function is responsible for adding/updating courses */
+            .on("click", ".courses", checkHHCourseAction)                                           /* this function is responsible for  checking and unchecking the the course's checkbox */
+            .on('click','.students_assignment_cell', showModalInStudentCell);                       /* this function is responsible for showing up a modal where user can write comment to students assigment */
 });
 
 /**
 * DOCU: This function is used to show a modal where user can write a comment to a students assignment. <br>
 * This function also has a behavior when a table row is hovered or clicked it will change its style <br>
-* Triggered: .on('click','td', addCommentToStudentAssignment); <br>
+* Triggered: .on('click','td', showModalInStudentCell); <br>
 * Last Updated Date: August 24, 2021
 * @function
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function addCommentToStudentAssignment(){ 
+function showModalInStudentCell(){ 
     let output_table_data = $(this);
-
+    console.log(output_table_data.data("student_id"));
     output_table_data.closest("tr").siblings().removeClass("active");                           
     output_table_data.closest("li").siblings().find("tr").removeClass("active");                
-    output_table_data.closest("tr").addClass("active");                                         
+    output_table_data.closest("tr").addClass("active");  
     
+    
+    //addCommentToStudentAssignment -- action
+
+    // when modal is open , populate data base on student_id data attribute
+    const find_student = students_data.filter((student) => student.id === parseInt(output_table_data.data("student_id")));
+    const {first_name, last_name } = find_student[0];
+
+    let add_comment_modal = $("#add_comment_modal");
+    add_comment_modal.find("#student_name").text(`${first_name} ${last_name}`);
 }
 
 /**
 * DOCU: This function is used to hide/show the course_form popover and reset the form <br>
-* Triggered: .on('click',"#btn_add_course, #btn_cancel_add_course", showAllCourses)  <br>
+* Triggered: .on('click',"#btn_add_course, #btn_cancel_add_course", loadHHCourses)  <br>
 * Last Updated Date: August 24, 2021
 * @function
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function showAllCourses(){ 
+function loadHHCourses(){ 
     $("#course_form").toggleClass("show").trigger("reset"); 
 }
 
 /**
 * DOCU: This function is used to check and unchecked the courses in the course_form <br>
-* Triggered: .on("click", ".courses", checkCourseAction) <br>
+* Triggered: .on("click", ".courses", checkHHCourseAction) <br>
 * Last Updated Date: August 24, 2021
 * @function
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function checkCourseAction(){
-    // comment
-    for(let course_index = 0; course_index < courses_data.length; course_index++){
-        let course_data = courses_data[course_index];
-        // comment
-        if(course_data.id == $(this).val()) course_data.is_selected = !course_data.is_selected; 
+function checkHHCourseAction(){
+
+    /* loop over the courses_data array */
+    for(let course of courses_data){
+        
+        /* if the course.id is equal to the check course id, then change the is_selected value to either true or false */
+        if(course.id == $(this).val()) course.is_selected = !course.is_selected;
     }
 }
 
@@ -73,7 +81,7 @@ function checkCourseAction(){
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function loadAllCoursesToDOM(){
+function loadAllHHCoursesToDOM(){
     let html_template = ``;
   
     for(let course_index = 0; course_index < courses_data.length; course_index++){
@@ -92,13 +100,13 @@ function loadAllCoursesToDOM(){
 
 /**
 * DOCU: This function is used to submit the selected or unselected courses <br>
-* Triggered: .on("submit", "#course_form", submitCourseForm) <br>
+* Triggered: .on("submit", "#course_form", submitHHCourseForm) <br>
 * Last Updated Date: August 24, 2021
 * @function
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function submitCourseForm(){
+function submitHHCourseForm(){
     let save_course_form = $(this);  
     let snackbar =  $("#snackbar");  
     let btn_add_course_submit = save_course_form.find("#btn_add_course_submit");
@@ -106,33 +114,17 @@ function submitCourseForm(){
     let courses_added = courses_data.filter((course) => course.is_selected);
 
     snackbar.find("span").text("Courses and assignments successfully " + ((btn_add_course_submit.text() === "Update") ? "updated." : "added."));
+    btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> ${(courses_added.length > 0) ? "Edit Course" : "Add Course"}`);
+    btn_add_course_submit.html(`<img src="./assets/plus.png" alt="plus sign"> ${(courses_added.length > 0) ? "Update" : "Add"}`);
+    save_course_form.trigger("reset").toggleClass("show");  
     
-    // if(btn_add_course_submit.text() === "Update"){
-    //     snackbar.find("span").text("Courses and assignments successfully updated.");
-    // }
-    // else{
-    //     snackbar.find("span").text("Courses and assignments successfully added.");
-    // }
+    /* load all courses from the database and display it to the DOM */
+    loadAddedHHCoursesToDOM();
 
-    if(courses_added.length > 0) {
-        btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> Edit Course`);
-        btn_add_course_submit.html("Update");
-    }
-    else {
-        btn_add_course.html(`<img src="./assets/plus.png" alt="plus sign"> Add Course`);
-        btn_add_course_submit.html("Add");
-    }
+    /* load all courses from the database and display it to the DOM */
+    loadAllHHCoursesToDOM();
 
     $("#add_course_image").hide();
-    
-    save_course_form.trigger("reset").toggleClass("show");    
-    
-    /* load all courses from the database and display it to the DOM */
-    loadAddedCoursesToDOM();
-
-    /* load all courses from the database and display it to the DOM */
-    loadAllCoursesToDOM();
-    
     snackbar.addClass("show");
     /* remove the class show from snackbar after 3 seconds */
     setTimeout(() => { 
@@ -150,13 +142,13 @@ function submitCourseForm(){
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-function loadAddedCoursesToDOM(){
+function loadAddedHHCoursesToDOM(){
     $("#courses_list").html(addedCourseTemplate(courses_data));
 }
 
 /**
 * DOCU: This function is used to append all course to #courses_list and load it to the DOM <br>
-* Triggered: loadAddedCoursesToDOM() <br>
+* Triggered: loadAddedHHCoursesToDOM() <br>
 * Last Updated Date: August 24, 2021
 * @param {array} courses_data Requires: courses_data array 
 * @function
@@ -183,12 +175,12 @@ function addedCourseTemplate(courses){
                html_template += `               <td>${courses[course_index].assignments[assignment_index]}</td>`;
                 
                /* will loop thru all students; in every single assigments, it will produce n number of students */
-               for(let student_id = 0; student_id < students_data.length; student_id++){
+               for(let student_index = 0; student_index < students_data.length; student_index++){
 
                    /*  HACK: Temporary solution for generating wheather student has an output or none*/
                    let has_output = Math.floor(Math.random() * 2);
                    
-                   html_template += `           <td data-toggle="modal" data-target=".modal">${(has_output === 0) ? "--" : "5/28/21"}</td>`;
+                   html_template += `           <td class="students_assignment_cell" data-student_id="${students_data[student_index].id}" data-toggle="modal" data-target=".modal">${(has_output === 0) ? "--" : "5/28/21"}</td>`;
                }
                 
                html_template += `           </tr>`;
@@ -205,7 +197,7 @@ function addedCourseTemplate(courses){
 
 /**
 * DOCU: This function is used to fetch country flag from https://restcountries.eu/ <br>
-* Triggered: loadGlobalStudents() <br>
+* Triggered: loadHHStudents() <br>
 * Last Updated Date: August 24, 2021
 * @param {obj} student.country Requires: student object 
 * @function
@@ -230,7 +222,7 @@ async function getCountry(country){
 * @memberOf Hacker Hero SpreadSheet Activity
 * @author Ivan Christian Jay
 */
-async function loadGlobalStudents(){
+async function loadHHStudents(){
     try{
         let html_template = `<th>Assignments</th>`;
         
