@@ -1,8 +1,9 @@
 #banner {
-    width: 940px; // 1480px
     background: $black_secondary;
-    margin: 0 auto;
     color: $gray_primary;
+    margin: 47px auto 0;
+    transition: .25s ease-in-out;
+    width: 940px; // 1480px
     img {
         width: 100%;
     }

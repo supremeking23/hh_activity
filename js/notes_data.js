@@ -37,7 +37,16 @@ export default [{
     "note_body": "lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt",
     "file_name": "UltricesLiberoNon.avi",
     "replies": [
-     
+        {
+            "id": 1,
+            "reply_body": "wala assigment",
+            "sender": "Jane Doe"
+        },
+        {
+            "id": 2,
+            "reply_body": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla",
+            "sender": "Jonathan Doe"
+        },
     ]
   }, {
     "id": 3,
@@ -48,7 +57,16 @@ export default [{
     "note_body": "mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis",
     "file_name": "BlanditMi.mpeg",
     "replies": [
-  
+        {
+            "id": 1,
+            "reply_body": "Nag kopyahan",
+            "sender": "Jane Doe"
+        },
+        {
+            "id": 2,
+            "reply_body": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla",
+            "sender": "Jonathan Doe"
+        },
     ]
   }, {
     "id": 4,
