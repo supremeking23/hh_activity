@@ -425,3 +425,32 @@ main {
         }
     }
 }
+
+#reply_note_form {
+    display: none;
+    margin: 10px auto 0px;
+    width: 280px;
+    input {
+        background: #0E0E10;
+        
+        height: 30px;
+        width: 100%;
+        border: none;
+        color: $gray_primary;
+        font: 14px/16px $lato_font;
+
+        
+
+        &::placeholder {
+            font: 14px/16px $lato_font;
+        }
+
+        &:focus-visible {
+            outline: none;
+          }
+    }
+
+    &.show {
+        display: block;
+    }
+}
