@@ -176,7 +176,7 @@
       align-items: center;
       color: #009EFF;
       display: flex;
-      justify-content: space-between;
+      position: relative;
 
       &:hover {
         text-decoration: none;
@@ -184,8 +184,13 @@
       }
 
       img {
+        &:first-child {
+          margin: 0px 5px 0px 0px;
+        }
         &:last-child {
           margin: 0px 0px 0px 36px;
+          position: absolute;
+          right: 0;
         }
       }
     }
@@ -196,7 +201,7 @@
       padding: 20px 0px 0px;
 
       .note {
-          margin: 0px 0px 55px 0px;
+          margin: 0px 0px 22px 0px;
 
           &:last-child {
             margin: 0px;
